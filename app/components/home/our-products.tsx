@@ -66,8 +66,7 @@ export default function OurProducts() {
           id="home-products"
           slidesPerView={"auto"}
           spaceBetween={28}
-          modules={[Pagination, EffectCoverflow]}
-          pagination={{ clickable: true }}
+          modules={[EffectCoverflow]}
           effect={"coverflow"}
           grabCursor={true}
           initialSlide={Math.floor(products.length / 2)}

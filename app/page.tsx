@@ -2,6 +2,7 @@ import styles from "./page.module.css";
 import contactTag from "../public/images/contact-tag.svg";
 import HomeBanner from "./components/home/home-banner/home-banner";
 import OurProducts from "./components/home/our-products";
+import Recipes from "./components/home/recipes";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
         </div>
       </div>
       <OurProducts />
+      <Recipes />
     </main>
   );
 }
