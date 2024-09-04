@@ -1,6 +1,7 @@
 import styles from "./page.module.css";
 import contactTag from "../public/images/contact-tag.svg";
 import HomeBanner from "./components/home/home-banner/home-banner";
+import OurProducts from "./components/home/our-products";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
           <HomeBanner />
         </div>
       </div>
+      <OurProducts />
     </main>
   );
 }

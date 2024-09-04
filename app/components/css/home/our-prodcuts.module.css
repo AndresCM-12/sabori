@@ -1,0 +1,63 @@
+.textWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding-top: 55px;
+  padding-inline: 20px;
+}
+
+.textWrapper h2 {
+  font-size: 48px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.textWrapper p {
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+  max-width: 550px;
+  margin-inline: auto;
+}
+
+.textWrapper a {
+  padding: 6px 30px;
+  background-color: #ff9494;
+  border-radius: 20px;
+  font-size: 14px;
+  color: white;
+  margin-bottom: 80px;
+}
+
+.swiperWrapper {
+  width: 100%;
+  height: 360px;
+  background-color: aliceblue;
+}
+
+.slideWrapper {
+  width: 260px;
+  height: 360px;
+}
+
+.swiperControl {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.swiperControl p {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 38.4px;
+  text-align: center;
+}
+
+.swiperControl img {
+  cursor: pointer;
+  height: 48px;
+}
