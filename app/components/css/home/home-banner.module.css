@@ -1,0 +1,100 @@
+.homeBanner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.slide {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 66px;
+}
+.swiperSlide {
+  border-radius: 20px;
+}
+
+.floatingText h1 {
+  font-size: 40px;
+  font-weight: 700;
+  text-align: left;
+  color: white;
+  max-width: 500px;
+  margin-bottom: 8px;
+}
+
+.floatingText p {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 18px;
+  text-align: left;
+  color: white;
+  max-width: 500px;
+  margin-bottom: 16px;
+}
+
+.floatingText a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 36px;
+  background-color: #ff9494;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: left;
+  width: fit-content;
+  color: white;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.thumbs {
+  height: 162px;
+  position: absolute !important;
+  bottom: 40px;
+  right: 0px;
+  width: 530px;
+  z-index: 2;
+}
+.activeThumbSlide {
+  width: 300px !important;
+  height: 162px;
+}
+.thumbSlide {
+  width: 200px !important;
+  height: 162px;
+}
+
+.thumbs img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  border: 2px solid white;
+  border-radius: 20px;
+}
+
+@media screen and (max-width: 580px) {
+  .thumbs{
+    display: none !important;
+  }
+
+  .homeBanner .slide{
+    padding-inline: 16px;
+  }
+}
