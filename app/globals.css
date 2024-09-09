@@ -21,6 +21,10 @@ a {
 .swiper-pagination-bullets.swiper-pagination-horizontal {
   position: absolute;
   left: 0px;
-  bottom: 0px !important; 
+  bottom: 0px !important;
   width: fit-content !important;
+}
+
+#whereFindUsSwiper .swiper-container-free-mode > .swiper-wrapper {
+  transition-timing-function: linear;
 }

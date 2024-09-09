@@ -5,6 +5,7 @@ import OurProducts from "./components/home/our-products";
 import Recipes from "./components/home/recipes";
 import FeaturedBlog from "./components/home/featured-blog";
 import AboutUs from "./components/home/about-us";
+import WhereFindUs from "./components/where-find-us";
 
 export default function Home() {
   return (
@@ -28,6 +29,7 @@ export default function Home() {
       <Recipes />
       <FeaturedBlog />
       <AboutUs />
+      <WhereFindUs />
     </main>
   );
 }

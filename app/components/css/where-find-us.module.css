@@ -1,0 +1,17 @@
+.whereFindUsWrapper {
+  padding-inline: 0px;
+}
+.whereFindUsWrapper h6 {
+  font-size: 40px;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 60px;
+  padding-inline: 16px;
+}
+
+.whereFindUsWrapper img {
+  object-fit: cover;
+  width: 112px;
+  height: 112px;
+  border-radius: 100%;
+}
