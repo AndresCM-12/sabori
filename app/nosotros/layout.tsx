@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
 import { Lato } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
+import Header from "../components/header/header";
+import Footer from "../components/footer";
 
-const inter = Lato({
+const lato = Lato({
   weight: ["100", "300", "400", "700", "900"],
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "Sabori Parma | Inicio",
+  title: "Sabori Parma | Nosotros",
   description: "Sabori Parma",
 };
 
@@ -19,7 +21,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={inter.className}>{children}</body>
+      <body className={lato.className}>
+        <Header />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

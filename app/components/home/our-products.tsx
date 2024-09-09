@@ -63,7 +63,6 @@ export default function OurProducts() {
       </div>
       <div className={styles.swiperWrapper}>
         <Swiper
-          id="home-products"
           slidesPerView={"auto"}
           spaceBetween={28}
           modules={[EffectCoverflow]}

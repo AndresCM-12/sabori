@@ -11,7 +11,7 @@ export default function AboutUs() {
           pleasure and praising pain was born and I will give you a complete
           account of the system
         </p>
-        <a href="/sobre-nosotros">Ver más</a>
+        <a href="/nosotros">Ver más</a>
       </div>
       <img
         src="https://via.placeholder.com/800x720"

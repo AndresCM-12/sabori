@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import styles from "./css/where-find-us.module.css";
 import { Autoplay } from "swiper/modules";
 
-export default function WhereFindUs() {
+export default function WhereFindUs({ title }: { title: string }) {
   const stores = [
     "https://via.placeholder.com/112x112",
     "https://via.placeholder.com/112x112",
@@ -25,7 +25,7 @@ export default function WhereFindUs() {
 
   return (
     <section className={styles.whereFindUsWrapper}>
-      <h6>Dónde encontrarnos</h6>
+      <h6>{title}</h6>
       <Swiper
         id="whereFindUsSwiper"
         slidesPerView={"auto"}
