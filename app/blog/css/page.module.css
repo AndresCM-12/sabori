@@ -1,0 +1,257 @@
+.main {
+  padding-inline: 66px;
+  margin-top: 116px;
+}
+
+.imageWrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 500px;
+}
+
+.imageWrapper h1 {
+  font-size: 40px;
+  font-weight: 700;
+  text-align: left;
+  color: white;
+}
+
+.imageWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: -1;
+  filter: brightness(0.8);
+}
+
+.wrapper {
+  position: relative;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 60px;
+  background-color: #ffdcdc;
+  padding: 20px 40px;
+  border-radius: 40px;
+  max-width: 740px;
+  position: absolute;
+  width: 100%;
+  height: fit-content;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -240px;
+}
+
+.menu p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  transition: all 0.3s;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18.15px;
+  text-align: center;
+  text-decoration-color: black;
+  color: black;
+  text-decoration-thickness: 2px;
+  cursor: pointer;
+}
+
+.menu p:hover {
+  opacity: 60%;
+}
+
+.blogFeaturedWrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 60px;
+}
+
+.blogFeaturedWrapper .blogCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 520px;
+  padding: 20px;
+  border-radius: 20px;
+  position: relative;
+}
+
+.blogCard img {
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  position: absolute;
+  border-radius: 20px;
+  z-index: -1;
+  filter: brightness(0.7);
+  object-fit: cover;
+}
+
+.headerWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  color: white;
+}
+.headerWrapper div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  color: white;
+}
+
+.headerWrapper img {
+  position: relative;
+  z-index: 1;
+  width: 54px;
+  height: 30px;
+  object-fit: contain;
+  filter: none;
+}
+
+.blogCard h5 {
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 38.4px;
+  text-align: left;
+  color: white;
+  max-width: 300px;
+  margin-bottom: 16px;
+}
+.blogCard .text p {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  text-align: left;
+  max-width: 300px;
+  color: white;
+  margin-bottom: 58px;
+}
+
+.blogCard .text {
+  height: fit-content;
+  position: relative;
+}
+
+.blogCard .text a {
+  font-size: 14px;
+  color: white;
+  text-decoration: none;
+  padding: 12px 48px;
+  border-radius: 20px;
+  border: 1px solid white;
+  position: relative;
+  display: flex;
+  width: fit-content;
+}
+.menuMobile {
+  display: none;
+}
+.floatingMobileMenu {
+  display: none;
+}
+
+@media screen and (max-width: 1110px) {
+  .main {
+    padding-inline: 16px;
+  }
+  .blogFeaturedWrapper {
+    gap: 16px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .blogFeaturedWrapper {
+    gap: 16px;
+    grid-template-columns: 1fr 1fr;
+  }
+  .menu {
+    top: -200px;
+    border-radius: 20px;
+  }
+}
+
+@media screen and (max-width: 810px) {
+  .menu {
+    top: -200px;
+    border-radius: 20px;
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 535px) {
+  .blogFeaturedWrapper {
+    gap: 16px;
+    grid-template-columns: 1fr;
+  }
+  .menuMobile {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -112px;
+    width: 90%;
+    gap: 16px;
+    transition: all 0.3s ease-in-out;
+  }
+  .floatingMobileMenu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: flex-start;
+    position: absolute;
+    top: -64px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    gap: 16px;
+    background-color: #ff9494;
+    z-index: 2;
+    overflow: hidden;
+    transition: all 0.3s;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .menuMobile p {
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+    line-height: 16.8px;
+    text-align: center;
+    padding: 12px 24px;
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #ff9494;
+    padding: 8px 20px;
+    border-radius: 20px;
+  }
+  .menu {
+    display: none;
+  }
+}

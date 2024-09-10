@@ -11,10 +11,10 @@ export default function Footer() {
         <img src={saboriLogo.src} width={131} height={72} alt="" />
         <nav>
           <a href="/">Inicio</a>
-          <a href="/">Producto</a>
-          <a href="/">Recetas</a>
-          <a href="/">Nosotros</a>
-          <a href="/">Blog</a>
+          <a href="/productos">Producto</a>
+          <a href="/recetas">Recetas</a>
+          <a href="/nosotros">Nosotros</a>
+          <a href="/blog">Blog</a>
         </nav>
       </div>
 
