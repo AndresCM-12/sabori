@@ -24,7 +24,7 @@ export default function Header() {
       </div>
       <div className={styles.rightContainer}>
         <a href="/movil">Movil</a>
-        <a href="/carrito">Contáctanos</a>
+        <a href="/contacto">Contáctanos</a>
         <div className={styles.socialNetworks}>
           <a href="">Ig</a>
           <a href="">Fb</a>
