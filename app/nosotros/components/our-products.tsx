@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
-import styles from "../css/home/our-prodcuts.module.css";
+import styles from "../css/our-prodcuts.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCoverflow, Pagination } from "swiper/modules";
+import { EffectCoverflow } from "swiper/modules";
 import leftArrow from "../../../public/images/left-arrow.svg";
 import rightArrow from "../../../public/images/right-arrow.svg";
 
@@ -63,8 +63,8 @@ export default function OurProducts() {
       </div>
       <div className={styles.swiperWrapper}>
         <Swiper
-          id="home-products"
-          slidesPerView={"auto"}
+          id="us-products"
+          slidesPerView={window.innerWidth / 260}
           spaceBetween={28}
           modules={[EffectCoverflow]}
           effect={"coverflow"}
@@ -80,7 +80,14 @@ export default function OurProducts() {
           }}
         >
           {products.map((item, index) => (
-            <SwiperSlide className={styles.slideWrapper} key={index}>
+            <SwiperSlide
+              className={styles.slideWrapper}
+              style={{
+                width: "260px",
+                height: "360px",
+              }}
+              key={index}
+            >
               <img src={item.image} alt="Imagen de producto" />
             </SwiperSlide>
           ))}
@@ -91,7 +98,7 @@ export default function OurProducts() {
             src={leftArrow.src}
             onClick={() => {
               (
-                document.getElementById("home-products") as any
+                document.getElementById("us-products") as any
               ).swiper.slidePrev();
             }}
           ></img>
@@ -101,7 +108,7 @@ export default function OurProducts() {
             src={rightArrow.src}
             onClick={() => {
               (
-                document.getElementById("home-products") as any
+                document.getElementById("us-products") as any
               ).swiper.slideNext();
             }}
           ></img>

@@ -4,7 +4,7 @@ import usCover from "../../public/images/quienes-somos-cover.webp";
 import calidadIcon from "../../public/images/calidad-icon.svg";
 import innovacionIcon from "../../public/images/innovacion-icon.svg";
 import experienciaIcon from "../../public/images/experiencia-icon.svg";
-import OurProducts from "../components/home/our-products";
+import OurProducts from "./components/our-products";
 
 export default function Home() {
   const feature = [

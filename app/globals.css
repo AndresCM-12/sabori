@@ -17,14 +17,20 @@ a {
   text-decoration: none;
 }
 
-#recipes-swiper .swiper-pagination-fraction,
-.swiper-pagination-custom,
-.swiper-horizontal > .swiper-pagination-bullets,
-.swiper-pagination-bullets.swiper-pagination-horizontal {
+#recipes-swiper .swiper-pagination-horizontal {
   position: absolute;
   left: 0px;
   bottom: 0px !important;
   width: fit-content !important;
+}
+
+#recipes-page-swiper .swiper-pagination-horizontal {
+  position: absolute;
+  left: 250px !important;
+  top: 19px !important;
+  width: fit-content !important;
+  height: fit-content !important;
+  z-index: 2;
 }
 
 #whereFindUsSwiper .swiper-container-free-mode > .swiper-wrapper {
