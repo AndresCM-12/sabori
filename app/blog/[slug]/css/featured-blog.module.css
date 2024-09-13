@@ -1,0 +1,121 @@
+.blogWrapper{
+  padding-inline-start: 66px;
+}
+
+.blogCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 520px !important;
+  padding: 20px;
+  border-radius: 20px;
+  position: relative;
+  max-width: 444px;
+}
+
+.blogCard img {
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  position: absolute;
+  border-radius: 20px;
+  z-index: -1;
+  filter: brightness(0.7);
+  object-fit: cover;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-end;
+}
+
+.headerWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  color: white;
+}
+.headerWrapper div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  color: white;
+}
+
+.headerWrapper img {
+  position: relative;
+  z-index: 1;
+  width: 54px;
+  height: 30px;
+  object-fit: contain;
+  filter: none;
+}
+
+.blogCard h5 {
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 38.4px;
+  text-align: left;
+  color: white;
+  max-width: 300px;
+  margin-bottom: 16px;
+}
+.blogCard .text p {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  text-align: left;
+  max-width: 300px;
+  color: white;
+  margin-bottom: 58px;
+}
+.swiperSlide {
+  max-width: 444px;
+}
+
+.blogCard .text {
+  height: 76px;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+.blogCard:hover .text {
+  height: 240px;
+  position: relative;
+}
+
+.blogCard .text a {
+  font-size: 14px;
+  color: white;
+  text-decoration: none;
+  padding: 12px 48px;
+  border-radius: 20px;
+  border: 1px solid white;
+  position: relative;
+  display: flex;
+  width: fit-content;
+}
+
+@media screen and (max-width: 1110px) {
+  .blogWrapper {
+    padding-inline-start: 16px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .blogFeaturedWrapper {
+    gap: 16px;
+    flex-direction: column;
+    display: flex;
+  }
+}
+@media screen and (max-width: 520px) {
+  .swiperSlide {
+    max-width: 300px;
+  }
+
+  .blogCard {
+    max-width: 300px;
+  }
+}

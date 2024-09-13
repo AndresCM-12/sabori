@@ -23,7 +23,6 @@ export default function Header() {
         </a>
       </div>
       <div className={styles.rightContainer}>
-        <a href="/movil">Movil</a>
         <a href="/contacto">Contáctanos</a>
         <div className={styles.socialNetworks}>
           <a href="">Ig</a>
