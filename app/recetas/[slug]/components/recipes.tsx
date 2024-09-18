@@ -7,6 +7,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
+import redRightArrow from "../../../../public/images/red-right-arrow.svg";
 
 export default function Recipes() {
   const recipes = [
@@ -24,7 +25,7 @@ export default function Recipes() {
       image: "https://via.placeholder.com/700x600",
       description:
         "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
-      ctaLink: "/recetas/brochette-con-gravy",
+      ctaLink: "/recetas/champinones-rellenos",
       ctaText: "Ver receta",
       time: "25 min",
     },
@@ -60,7 +61,7 @@ export default function Recipes() {
   return (
     <section className={styles.recipesWrapper}>
       <Swiper
-        id="recipes-page-swiper"
+        id="recipes-swiper"
         style={
           {
             flexDirection: "column-reverse",
@@ -90,7 +91,12 @@ export default function Recipes() {
         }}
       >
         <div className={styles.titleWrapper}>
-          <h3>Lo más nuevo</h3>
+          <h3>Recetas</h3>
+          <a href="/recetas">Ver todo</a>
+          <img
+            src={redRightArrow.src}
+            alt="Flecha apuntando a la derecha roja"
+          />
         </div>
         {recipes.map((recipe, index) => (
           <SwiperSlide

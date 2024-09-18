@@ -1,18 +1,15 @@
 .recipesWrapper {
   display: flex;
   justify-content: flex-start;
+  margin-top: 50px;
+  padding-inline: 66px;
   flex-direction: column;
-  position: absolute;
-  right: 0px;
-  top: 208px;
-  z-index: 4;
-  width: 70%;
-  max-width: 1670px;
 }
 
 .titleWrapper {
   display: flex;
   justify-content: flex-start;
+  margin-top: 135px;
   gap: 16px;
   align-items: baseline;
   margin-bottom: 16px;
@@ -34,11 +31,10 @@
 .recipeCard {
   position: relative;
   width: 700px;
-  max-width: 700px;
   height: 600px;
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-end;
   padding-inline: 32px;
   padding-block: 66px;
 }
@@ -56,16 +52,11 @@
 
 .swiperWrapper {
   width: 100%;
+  padding-bottom: 40px;
 }
 
 .recipeInfo {
   position: relative;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-start;
 }
 
 .recipeInfo h4 {
@@ -103,19 +94,6 @@
   padding: 8px 32px;
   border-radius: 20px;
   margin-top: 16px;
-}
-
-@media screen and (max-width: 960px) {
-  .recipesWrapper {
-    top: 360px;
-    width: 100%;
-    padding-inline-start: 40px !important;
-  }
-}
-@media screen and (max-width: 760px) {
-  .recipeCard {
-    max-width: 400px;
-  }
 }
 
 @media screen and (max-width: 1110px) {

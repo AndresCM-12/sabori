@@ -21,6 +21,14 @@ export default function WhereFindUs({ title }: { title: string }) {
     "https://via.placeholder.com/112x112",
     "https://via.placeholder.com/112x112",
     "https://via.placeholder.com/112x112",
+    "https://via.placeholder.com/112x112",
+    "https://via.placeholder.com/112x112",
+    "https://via.placeholder.com/112x112",
+    "https://via.placeholder.com/112x112",
+    "https://via.placeholder.com/112x112",
+    "https://via.placeholder.com/112x112",
+    "https://via.placeholder.com/112x112",
+    "https://via.placeholder.com/112x112",
   ];
 
   return (

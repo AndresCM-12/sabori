@@ -2,7 +2,7 @@
 
 import { useLayoutEffect, useState } from "react";
 import styles from "../css/page.module.css";
-import mobileIconMenu from "../../../public/images/primary-mobile-icon-menu.svg";
+import mobileIconMenu from "../../../../public/images/primary-mobile-icon-menu.svg";
 
 export default function BlogItems() {
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -40,7 +40,7 @@ export default function BlogItems() {
           image: "https://via.placeholder.com/700x600",
           description:
             "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
-          ctaLink: "/recetas/brochette-con-gravy",
+          ctaLink: "link1",
           ctaText: "Ver receta",
           time: "25 min",
         },
@@ -49,7 +49,7 @@ export default function BlogItems() {
           image: "https://via.placeholder.com/700x600",
           description:
             "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
-          ctaLink: "/recetas/brochette-con-gravy",
+          ctaLink: "link1",
           ctaText: "Ver receta",
           time: "20 min",
         },
@@ -58,7 +58,7 @@ export default function BlogItems() {
           image: "https://via.placeholder.com/700x600",
           description:
             "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
-          ctaLink: "/recetas/brochette-con-gravy",
+          ctaLink: "link1",
           ctaText: "Ver receta",
           time: "20 min",
         },
@@ -67,7 +67,7 @@ export default function BlogItems() {
           image: "https://via.placeholder.com/700x600",
           description:
             "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
-          ctaLink: "/recetas/brochette-con-gravy",
+          ctaLink: "link1",
           ctaText: "Ver receta",
           time: "20 min",
         },
@@ -76,7 +76,7 @@ export default function BlogItems() {
           image: "https://via.placeholder.com/700x600",
           description:
             "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
-          ctaLink: "/recetas/brochette-con-gravy",
+          ctaLink: "link1",
           ctaText: "Ver receta",
           time: "20 min",
         },
@@ -85,7 +85,7 @@ export default function BlogItems() {
           image: "https://via.placeholder.com/700x600",
           description:
             "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
-          ctaLink: "/recetas/brochette-con-gravy",
+          ctaLink: "link1",
           ctaText: "Ver receta",
           time: "20 min",
         },
@@ -94,7 +94,7 @@ export default function BlogItems() {
           image: "https://via.placeholder.com/700x600",
           description:
             "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
-          ctaLink: "/recetas/brochette-con-gravy",
+          ctaLink: "link1",
           ctaText: "Ver receta",
           time: "20 min",
         },
@@ -117,7 +117,7 @@ export default function BlogItems() {
           image: "https://via.placeholder.com/700x600",
           description:
             "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
-          ctaLink: "/recetas/brochette-con-gravy",
+          ctaLink: "link1",
           ctaText: "Ver receta",
           time: "25 min",
         },
@@ -126,7 +126,7 @@ export default function BlogItems() {
           image: "https://via.placeholder.com/700x600",
           description:
             "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
-          ctaLink: "/recetas/brochette-con-gravy",
+          ctaLink: "link1",
           ctaText: "Ver receta",
           time: "20 min",
         },
@@ -149,7 +149,7 @@ export default function BlogItems() {
           image: "https://via.placeholder.com/700x600",
           description:
             "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
-          ctaLink: "/recetas/brochette-con-gravy",
+          ctaLink: "link1",
           ctaText: "Ver receta",
           time: "25 min",
         },
@@ -158,7 +158,7 @@ export default function BlogItems() {
           image: "https://via.placeholder.com/700x600",
           description:
             "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
-          ctaLink: "/recetas/brochette-con-gravy",
+          ctaLink: "link1",
           ctaText: "Ver receta",
           time: "20 min",
         },
@@ -181,7 +181,7 @@ export default function BlogItems() {
           image: "https://via.placeholder.com/700x600",
           description:
             "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
-          ctaLink: "/recetas/brochette-con-gravy",
+          ctaLink: "link1",
           ctaText: "Ver receta",
           time: "25 min",
         },
@@ -190,7 +190,7 @@ export default function BlogItems() {
           image: "https://via.placeholder.com/700x600",
           description:
             "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
-          ctaLink: "/recetas/brochette-con-gravy",
+          ctaLink: "link1",
           ctaText: "Ver receta",
           time: "20 min",
         },
@@ -213,7 +213,7 @@ export default function BlogItems() {
           image: "https://via.placeholder.com/700x600",
           description:
             "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
-          ctaLink: "/recetas/brochette-con-gravy",
+          ctaLink: "link1",
           ctaText: "Ver receta",
           time: "25 min",
         },
@@ -222,7 +222,7 @@ export default function BlogItems() {
           image: "https://via.placeholder.com/700x600",
           description:
             "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
-          ctaLink: "/recetas/brochette-con-gravy",
+          ctaLink: "link1",
           ctaText: "Ver receta",
           time: "20 min",
         },
