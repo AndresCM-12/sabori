@@ -1,5 +1,5 @@
 "use client";
-import React, { useLayoutEffect } from "react";
+import React from "react";
 import styles from "../css/our-prodcuts.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCoverflow } from "swiper/modules";
@@ -49,15 +49,8 @@ export default function OurProducts() {
       image: "https://via.placeholder.com/260x360",
     },
   ];
-  const [windowWidth, setWindowWidth] = React.useState(0);
-  useLayoutEffect(() => {
-    function updateSize() {
-      setWindowWidth(window.innerWidth);
-    }
-    window.addEventListener("resize", updateSize);
-    updateSize();
-    return () => window.removeEventListener("resize", updateSize);
-  }, []);
+  //Set window width if the window is not defined
+  const windowWidth = typeof window !== "undefined" ? window.innerWidth : 0;
 
   return (
     <section>
