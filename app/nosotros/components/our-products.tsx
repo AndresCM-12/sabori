@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useLayoutEffect } from "react";
 import styles from "../css/our-prodcuts.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCoverflow } from "swiper/modules";
@@ -49,8 +49,12 @@ export default function OurProducts() {
       image: "https://via.placeholder.com/260x360",
     },
   ];
-  //Set window width if the window is not defined
-  const windowWidth = typeof window !== "undefined" ? window.innerWidth : 0;
+  const [windowWidth, setWindowWidth] = React.useState(0);
+  useLayoutEffect(() => {
+    console.log(window.innerWidth);
+    setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", () => setWindowWidth(window.innerWidth));
+  }, []);
 
   return (
     <section>
@@ -64,36 +68,38 @@ export default function OurProducts() {
         <a href="/productos">Ver detalles</a>
       </div>
       <div className={styles.swiperWrapper}>
-        <Swiper
-          id="us-products"
-          slidesPerView={windowWidth / 260}
-          spaceBetween={28}
-          modules={[EffectCoverflow]}
-          effect={"coverflow"}
-          grabCursor={true}
-          initialSlide={Math.floor(products.length / 2)}
-          centeredSlides={true}
-          coverflowEffect={{
-            rotate: 0,
-            stretch: 0,
-            depth: 100,
-            modifier: 1,
-            slideShadows: false,
-          }}
-        >
-          {products.map((item, index) => (
-            <SwiperSlide
-              className={styles.slideWrapper}
-              style={{
-                width: "260px",
-                height: "360px",
-              }}
-              key={index}
-            >
-              <img src={item.image} alt="Imagen de producto" />
-            </SwiperSlide>
-          ))}
-        </Swiper>
+        {windowWidth > 0 ? (
+          <Swiper
+            id="us-products"
+            slidesPerView={windowWidth / 260}
+            spaceBetween={28}
+            modules={[EffectCoverflow]}
+            effect={"coverflow"}
+            grabCursor={true}
+            initialSlide={Math.floor(products.length / 2)}
+            centeredSlides={true}
+            coverflowEffect={{
+              rotate: 0,
+              stretch: 0,
+              depth: 100,
+              modifier: 1,
+              slideShadows: false,
+            }}
+          >
+            {products.map((item, index) => (
+              <SwiperSlide
+                className={styles.slideWrapper}
+                style={{
+                  width: "260px",
+                  height: "360px",
+                }}
+                key={index}
+              >
+                <img src={item.image} alt="Imagen de producto" />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        ) : null}
         <div className={styles.swiperControl}>
           <img
             width={20}
