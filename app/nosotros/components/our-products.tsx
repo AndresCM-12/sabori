@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useLayoutEffect } from "react";
 import styles from "../css/our-prodcuts.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCoverflow } from "swiper/modules";
@@ -49,6 +49,15 @@ export default function OurProducts() {
       image: "https://via.placeholder.com/260x360",
     },
   ];
+  const [windowWidth, setWindowWidth] = React.useState(0);
+  useLayoutEffect(() => {
+    function updateSize() {
+      setWindowWidth(window.innerWidth);
+    }
+    window.addEventListener("resize", updateSize);
+    updateSize();
+    return () => window.removeEventListener("resize", updateSize);
+  }, []);
 
   return (
     <section>
@@ -64,7 +73,7 @@ export default function OurProducts() {
       <div className={styles.swiperWrapper}>
         <Swiper
           id="us-products"
-          slidesPerView={window.innerWidth / 260}
+          slidesPerView={windowWidth / 260}
           spaceBetween={28}
           modules={[EffectCoverflow]}
           effect={"coverflow"}
