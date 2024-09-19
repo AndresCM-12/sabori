@@ -1,9 +1,9 @@
 import styles from "./css/page.module.css";
-import blogCover from "../../../public/images/products-cover.webp";
 import WhereFindUs from "@/app/components/where-find-us";
 import OurProducts from "@/app/nosotros/components/our-products";
 import Recipes from "@/app/recetas/[slug]/components/recipes";
 import fitnessIcon from "../../../public/images/fitness-icon.svg";
+import contactImage from "../../../public/images/contact-cover.webp";
 
 export default function Home() {
   const productDetails = {
@@ -32,25 +32,25 @@ export default function Home() {
         name: "Proteínas",
         value: "150",
         unit: "kcal",
-        added: "",
+        added: " ",
       },
       {
         name: "Proteínas",
         value: "150",
         unit: "kcal",
-        added: "",
+        added: "Añadido",
       },
       {
         name: "Proteínas",
         value: "150",
         unit: "kcal",
-        added: "",
+        added: " ",
       },
       {
         name: "Proteínas",
         value: "150",
         unit: "kcal",
-        added: "",
+        added: " ",
       },
     ],
     productImage:
@@ -88,15 +88,102 @@ export default function Home() {
           </div>
         </div>
 
-        <div className={styles.nutrients} >
+        <div className={styles.nutrients}>
           <h2>Declaración nutrimental | Tamaño de la porción de 100g</h2>
-          <div className={styles.nutrientsWrapper}></div>
+          <div className={styles.nutrientsWrapper}>
+            <div className={styles.row}>
+              <p>Contenido energético</p>
+              <p>Contenido energético</p>
+              <p>Contenido energético</p>
+              <p> </p>
+            </div>
+            <div className={styles.separator}></div>
+
+            {productDetails.nutritionFacts.map((fact, index) => (
+              <div className={styles.rowWrapper}>
+                <div key={index} className={styles.row}>
+                  <p>{fact.name}</p>
+                  <p>{fact.value}</p>
+                  <p>{fact.unit}</p>
+                  <p>{fact.added}</p>
+                </div>
+                <div className={styles.separator}></div>
+              </div>
+            ))}
+          </div>
         </div>
       </main>
       <OurProducts />
       <div style={{ height: "240px" }}></div>
       <WhereFindUs title="Distribuidores" />
       <Recipes />
+      <div className={styles.contactWrapper}>
+        <div className={styles.textWrapperRelative}>
+          <div className={styles.textWrapper}>
+            <h6>Contáctanos</h6>
+            <div className={styles.formWrapper}>
+              <form action="sent" method="post">
+                <div className={styles.horizontalWrapper}>
+                  <input
+                    type="text"
+                    name="Nombre Completo"
+                    placeholder="Nombre Completo"
+                    required
+                  />
+                  <input
+                    type="email"
+                    name="Correo Electrónico"
+                    placeholder="Correo Electrónico"
+                    required
+                  />
+                  <input
+                    type="tel"
+                    name="Teléfono"
+                    placeholder="Teléfono"
+                    required
+                  />
+                  <input
+                    type="text"
+                    name="Recursos Humanos"
+                    placeholder="Recursos Humanos"
+                    required
+                  />
+                  <input
+                    type="text"
+                    name="Estado"
+                    placeholder="Estado"
+                    required
+                  />
+                </div>
+                <textarea
+                  name="Mensaje"
+                  placeholder="Mensaje"
+                  required
+                  rows={5}
+                ></textarea>
+                <div className={styles.buttonWrapper}>
+                  <div className={styles.termsWrapper}>
+                    <input
+                      id="Términos y condiciones"
+                      type="checkbox"
+                      name="Términos y condiciones"
+                      placeholder="Acepto términos y condiciones"
+                      required
+                    />
+                    <label htmlFor="Términos y condiciones">
+                      Acepto términos y condiciones
+                    </label>
+                  </div>
+                  <button type="submit">Enviar</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div className={styles.imageWrapper}>
+          <img src={contactImage.src} alt="Icono de fitness" />
+        </div>
+      </div>
     </>
   );
 }

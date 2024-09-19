@@ -51,7 +51,6 @@ export default function OurProducts() {
   ];
   const [windowWidth, setWindowWidth] = React.useState(0);
   useLayoutEffect(() => {
-    console.log(window.innerWidth);
     setWindowWidth(window.innerWidth);
     window.addEventListener("resize", () => setWindowWidth(window.innerWidth));
   }, []);
