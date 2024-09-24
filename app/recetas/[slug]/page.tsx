@@ -86,15 +86,15 @@ export default function Home() {
             allowFullScreen
           ></iframe>
         </div>
-        <Recomendations testimonials={recipeDetails.testimonials} />
-        <Recipes />
-        <div
-          style={{
-            marginTop: "90px",
-          }}
-        ></div>
-        <WhereFindUs title="Donde comprar" />
       </section>
+      <Recomendations testimonials={recipeDetails.testimonials} />
+      <Recipes />
+      <div
+        style={{
+          marginTop: "90px",
+        }}
+      ></div>
+      <WhereFindUs title="Donde comprar" />
     </>
   );
 }

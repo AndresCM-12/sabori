@@ -14,7 +14,7 @@ export default function MobileHeader() {
         onClick={() => setMenuIsOpen(true)}
         className={styles.menuButtonContainer}
       >
-        <img src={menuIcon.src} alt="Ícono para el menú" />
+        <img src={menuIcon.src} width={48} height={48} alt="Ícono para el menú" />
       </div>
 
       <div
@@ -41,9 +41,9 @@ export default function MobileHeader() {
           <img
             onClick={() => setMenuIsOpen(false)}
             src={invertedMenuIcon.src}
-            width={38}
-            height={38}
-            alt="Logo de Sabori parma"
+            width={48}
+            height={48}
+            alt="Ícono para cerrar el menú"
           />
         </div>
 

@@ -229,7 +229,6 @@ function StepOne({
           onClick={() => {
             if (stepInfo[step]) {
               step < 4 ? setStep(step + 1) : null;
-              console.log(stepInfo);
             }
           }}
         >
@@ -279,7 +278,6 @@ function StepTwo({
       options.height === null &&
       options.weight === null
     ) {
-      console.log("First time");
       setOptions(stepInfo[step].stepTwoValue);
       return;
     }
@@ -293,7 +291,6 @@ function StepTwo({
       return;
     }
 
-    console.log("Updating the value of step two");
     const newValueOfStep = {
       stepTwoTitle: "Información básica",
       stepTwoValue: options,
@@ -375,7 +372,6 @@ function StepTwo({
             const isFinished = Object.values(options).every((value) => value);
             if (isFinished) {
               step < 4 ? setStep(step + 1) : null;
-              console.log(stepInfo);
             }
           }}
         >
@@ -502,7 +498,6 @@ function StepThree({
           onClick={() => {
             if (stepInfo[step]) {
               step < 4 ? setStep(step + 1) : null;
-              console.log(stepInfo);
             }
           }}
         >
@@ -580,7 +575,6 @@ function StepFour({
           onClick={() => {
             if (stepInfo[step]) {
               step < 4 ? setStep(step + 1) : null;
-              console.log(stepInfo);
             }
           }}
         >
@@ -704,10 +698,76 @@ function Results({
   stepInfo: any;
   setInfo: Function;
 }) {
-  var results = {};
+  const [results, setResults] = React.useState({
+    bmr: 0,
+    imc: 0,
+    tdee: 0,
+    bmlf: 0,
+    proteins: 0,
+    fats: 0,
+    carbs: 0,
+  });
   useEffect(() => {
-    //Here we calculate the results on load
-    console.log("Calculating the results");
+    var bmr = 0;
+    var imc = 0;
+    var tdee = 0;
+    var bmlf = 0;
+    var proteins = 0;
+    var fats = 0;
+    var carbs = 0;
+
+    if (stepInfo[1].stepTwoValue.sex === "hombre") {
+      bmr =
+        10 * stepInfo[1].stepTwoValue.weight +
+        6.25 * stepInfo[1].stepTwoValue.height -
+        5 * stepInfo[1].stepTwoValue.age +
+        5;
+    }
+    if (stepInfo[1].stepTwoValue.sex === "mujer") {
+      bmr =
+        10 * stepInfo[1].stepTwoValue.weight +
+        6.25 * stepInfo[1].stepTwoValue.height -
+        5 * stepInfo[1].stepTwoValue.age -
+        161;
+    }
+
+    imc =
+      stepInfo[1].stepTwoValue.weight /
+      Math.pow(stepInfo[1].stepTwoValue.height / 100, 2);
+
+    tdee = bmr * stepInfo[3].stepFourValue;
+
+    if (stepInfo[0].stepOneTitle === "Bajar de peso") {
+      bmlf = tdee * 0.75;
+    } else if (stepInfo[0].stepOneTitle === "Mantener peso") {
+      bmlf = tdee * 0.3;
+    } else if (stepInfo[0].stepOneTitle === "Aumentar masa muscular") {
+      bmlf = tdee * 0.36;
+    } else if (stepInfo[0].stepOneTitle === "Tonificar") {
+      bmlf = tdee * 0.34;
+    }
+
+    fats = (bmlf * 0.25) / 9;
+    proteins = stepInfo[1].stepTwoValue.weight * 2.2;
+    carbs = (bmlf - fats * 9 - proteins * 4) / 4;
+
+    setResults({
+      bmr: Math.floor(bmr),
+      imc: Math.floor(imc),
+      tdee: Math.floor(tdee),
+      bmlf: Math.floor(bmlf),
+      proteins: Math.floor(proteins),
+      fats: Math.floor(fats),
+      carbs: Math.floor(carbs),
+    });
+
+    console.log("Bmr: ", bmr);
+    console.log("Imc: ", imc);
+    console.log("Tdee: ", tdee);
+    console.log("Bmlf: ", bmlf);
+    console.log("Proteins: ", proteins);
+    console.log("Fats: ", fats);
+    console.log("Carbs: ", carbs);
   }, []);
 
   return (
@@ -718,22 +778,23 @@ function Results({
             <h4>Estos son los resultados de tu evaluación nutrimental</h4>
             <div className={styles.dataWrapper}>
               <p>
-                Tasa de metabolismo basal: <span>$34</span>
+                Tasa de metabolismo basal: <span>{results.bmr}</span>
               </p>
               <p>
-                Índice de masa corporal: <span>$34</span>
+                Índice de masa corporal: <span>{results.imc}</span>
               </p>
               <p>
-                Objetivos de consumo calórico por día: <span>$34</span>
+                Objetivos de consumo calórico por día:{" "}
+                <span>{results.tdee}</span>
               </p>
               <p>
-                Grasas: <span>$34</span>
+                Grasas: <span>{results.fats}</span>
               </p>
               <p>
-                Proteínas: <span>$34</span>
+                Proteínas: <span>{results.proteins}</span>
               </p>
               <p>
-                Carbohidratos: <span>$34</span>
+                Carbohidratos: <span>{results.carbs}</span>
               </p>
             </div>
           </div>
@@ -750,16 +811,8 @@ function Results({
       </div>
       <div className={styles.resultsInfoWrapper}>
         <h4>Conoce más sobre el significado de cada resultado que recibiste</h4>
-        <Swiper spaceBetween={20}>
-          <SwiperSlide
-            className={styles.slide}
-            style={{
-              width: "300px !important",
-              height: "fit-content",
-              borderRadius: "30px",
-              padding: "20px",
-            }}
-          >
+        <Swiper spaceBetween={20} slidesPerView={"auto"}>
+          <SwiperSlide className={styles.slide}>
             <h6>Tasa de metabolismo basal</h6>
             <p>
               laborious physical exercise, except to obtain some who avoids a
@@ -770,15 +823,7 @@ function Results({
               produces no resultant pleasure?"
             </p>
           </SwiperSlide>
-          <SwiperSlide
-            className={styles.slide}
-            style={{
-              width: "300px",
-              height: "fit-content",
-              borderRadius: "30px",
-              padding: "20px",
-            }}
-          >
+          <SwiperSlide className={styles.slide}>
             <h6>Índice de masa corporal</h6>
             <p>
               laborious physical exercise, except to obtain some who avoids a
@@ -789,15 +834,7 @@ function Results({
               produces no resultant pleasure?"
             </p>
           </SwiperSlide>
-          <SwiperSlide
-            className={styles.slide}
-            style={{
-              width: "300px",
-              height: "fit-content",
-              borderRadius: "30px",
-              padding: "20px",
-            }}
-          >
+          <SwiperSlide className={styles.slide}>
             <h6>Objetivos de consumo calórico por día</h6>
             <p>
               laborious physical exercise, except to obtain some who avoids a
@@ -806,15 +843,7 @@ function Results({
               right to find fault with a
             </p>
           </SwiperSlide>
-          <SwiperSlide
-            className={styles.slide}
-            style={{
-              width: "300px",
-              height: "fit-content",
-              borderRadius: "30px",
-              padding: "20px",
-            }}
-          >
+          <SwiperSlide className={styles.slide}>
             <h6>Grasas</h6>
             <p>
               laborious physical exercise, except to obtain some who avoids a
@@ -823,15 +852,7 @@ function Results({
               right to find fault with a
             </p>
           </SwiperSlide>
-          <SwiperSlide
-            className={styles.slide}
-            style={{
-              width: "300px",
-              height: "fit-content",
-              borderRadius: "30px",
-              padding: "20px",
-            }}
-          >
+          <SwiperSlide className={styles.slide}>
             <h6>Proteínas</h6>
             <p>
               laborious physical exercise, except to obtain some who avoids a
@@ -840,15 +861,7 @@ function Results({
               right to find fault with a
             </p>
           </SwiperSlide>
-          <SwiperSlide
-            className={styles.slide}
-            style={{
-              width: "300px",
-              height: "fit-content",
-              borderRadius: "30px",
-              padding: "20px",
-            }}
-          >
+          <SwiperSlide className={styles.slide}>
             <h6>Carbohidratos</h6>
             <p>
               laborious physical exercise, except to obtain some who avoids a
