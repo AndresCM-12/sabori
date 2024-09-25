@@ -1,12 +1,16 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "../../css/home/home-banner.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Thumbs } from "swiper/modules";
+
 import "swiper/css";
+import { fetchArrayInPost } from "@/app/utils/methods";
+import { featuredHome } from "@/app/utils/constants";
 
 export default function HomeBanner() {
-  const carouselData = [
+  const didFetch = React.useRef(false);
+  const [carouselData, setCarouselData] = React.useState([
     {
       image: "https://via.placeholder.com/1920x1080",
       title: "Pasta a los tres quesos",
@@ -16,7 +20,7 @@ export default function HomeBanner() {
       ctaLink: "/cta-link-1",
     },
     {
-      image: "https://picsum.photos/1920/1080",
+      image: "https://via.placeholder.com/1920x1080",
       title: "Pasta a los tres quesos 2",
       description:
         "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
@@ -24,14 +28,32 @@ export default function HomeBanner() {
       ctaLink: "/cta-link-2",
     },
     {
-      image: "https://picsum.photos/id/238/1920/1080",
+      image: "https://via.placeholder.com/1920x1080",
       title: "Pasta a los tres quesos 3",
       description:
         "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
       ctaText: "¿Como se hace? 3",
       ctaLink: "/cta-link-3",
     },
-  ];
+    {
+      image: "https://via.placeholder.com/1920x1080",
+      title: "Pasta a los tres quesos 3",
+      description:
+        "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
+      ctaText: "¿Como se hace? 3",
+      ctaLink: "/cta-link-3",
+    },
+  ]);
+
+  useEffect(() => {
+    if (didFetch.current === false) {
+      fetchArrayInPost(featuredHome).then((data) => {
+        setCarouselData(data);
+      });
+      didFetch.current = true;
+    }
+  }, []);
+
   const [thumbsSwiper, setThumbsSwiper] = React.useState(null);
   const [currentIndex, setCurrentIndex] = React.useState(0);
 

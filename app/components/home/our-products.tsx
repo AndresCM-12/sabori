@@ -1,17 +1,20 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "../css/home/our-prodcuts.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCoverflow, Pagination } from "swiper/modules";
+import { EffectCoverflow } from "swiper/modules";
 import leftArrow from "../../../public/images/left-arrow.svg";
 import rightArrow from "../../../public/images/right-arrow.svg";
 
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-coverflow";
+import { fetchArrayInPost } from "@/app/utils/methods";
+import { featuredProducts } from "@/app/utils/constants";
 
 export default function OurProducts() {
-  const products = [
+  const didFetch = React.useRef(false);
+  const [products, setProducts] = React.useState([
     {
       link: "/productos/pechuga-de-pavo",
       image: "https://via.placeholder.com/260x360",
@@ -40,15 +43,16 @@ export default function OurProducts() {
       link: "/productos/pechuga-de-pavo",
       image: "https://via.placeholder.com/260x360",
     },
-    {
-      link: "/productos/pechuga-de-pavo",
-      image: "https://via.placeholder.com/260x360",
-    },
-    {
-      link: "/productos/pechuga-de-pavo",
-      image: "https://via.placeholder.com/260x360",
-    },
-  ];
+  ]);
+
+  useEffect(() => {
+    if (didFetch.current === false) {
+      fetchArrayInPost(featuredProducts).then((data) => {
+        setProducts(data);
+      });
+      didFetch.current = true;
+    }
+  }, []);
 
   return (
     <section>
@@ -62,29 +66,31 @@ export default function OurProducts() {
         <a href="/productos">Ver detalles</a>
       </div>
       <div className={styles.swiperWrapper}>
-        <Swiper
-          id="home-products"
-          slidesPerView={"auto"}
-          spaceBetween={28}
-          modules={[EffectCoverflow]}
-          effect={"coverflow"}
-          grabCursor={true}
-          initialSlide={Math.floor(products.length / 2)}
-          centeredSlides={true}
-          coverflowEffect={{
-            rotate: 0,
-            stretch: 0,
-            depth: 100,
-            modifier: 1,
-            slideShadows: false,
-          }}
-        >
-          {products.map((item, index) => (
-            <SwiperSlide className={styles.slideWrapper} key={index}>
-              <img src={item.image} alt="Imagen de producto" />
-            </SwiperSlide>
-          ))}
-        </Swiper>
+        {didFetch.current && (
+          <Swiper
+            id="home-products"
+            slidesPerView={"auto"}
+            spaceBetween={28}
+            modules={[EffectCoverflow]}
+            effect={"coverflow"}
+            grabCursor={true}
+            initialSlide={Math.floor(products.length / 2)}
+            centeredSlides={true}
+            coverflowEffect={{
+              rotate: 0,
+              stretch: 0,
+              depth: 100,
+              modifier: 1,
+              slideShadows: false,
+            }}
+          >
+            {products.map((item, index) => (
+              <SwiperSlide className={styles.slideWrapper} key={index}>
+                <img src={item.image} alt="Imagen de producto" />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        )}
         <div className={styles.swiperControl}>
           <img
             width={20}
