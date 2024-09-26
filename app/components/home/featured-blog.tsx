@@ -1,9 +1,13 @@
-import React from "react";
+"use client"
+
+import React, { useEffect, useState } from "react";
 import styles from "../css/home/featured-blog.module.css";
 import fitnessIcon from "../../../public/images/fitness-icon.svg";
+import { fetchArrayInPost } from "@/app/utils/methods";
+import { featuredBlog } from "@/app/utils/constants";
 
 export default function FeaturedBlog() {
-  const featuredBlog = [
+  const [blogs, setFeaturedBlog] = useState([
     {
       image: "https://via.placeholder.com/560x560",
       title: "Tips para ganar músculo",
@@ -37,7 +41,16 @@ export default function FeaturedBlog() {
       date: "12/12/2021",
       icon: fitnessIcon.src,
     },
-  ];
+  ]);
+  const didFetch = React.useRef(false);
+  useEffect(() => {
+    if (didFetch.current === false) {
+      fetchArrayInPost(featuredBlog).then((data) => {
+        setFeaturedBlog(data);
+      });
+      didFetch.current = true;
+    }
+  }, []);
 
   return (
     <section className={styles.blogWrapper}>
@@ -51,7 +64,7 @@ export default function FeaturedBlog() {
         <a href="/blog">Ver todo</a>
       </div>
       <div className={styles.blogFeaturedWrapper}>
-        {featuredBlog.map((blog, index) => (
+        {blogs.map((blog, index) => (
           <div key={index} className={styles.blogCard}>
             <div className={styles.headerWrapper}>
               <div>

@@ -1,13 +1,15 @@
 "use client";
 import "swiper/css";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import styles from "./css/where-find-us.module.css";
 import { Autoplay } from "swiper/modules";
+import { fetchArrayInPost } from "../utils/methods";
+import { whereFindUs } from "../utils/constants";
 
 export default function WhereFindUs({ title }: { title: string }) {
-  const stores = [
+  const [stores, setStores] = useState([
     "https://via.placeholder.com/112x112",
     "https://via.placeholder.com/112x112",
     "https://via.placeholder.com/112x112",
@@ -29,7 +31,16 @@ export default function WhereFindUs({ title }: { title: string }) {
     "https://via.placeholder.com/112x112",
     "https://via.placeholder.com/112x112",
     "https://via.placeholder.com/112x112",
-  ];
+  ]);
+  const didFetch = React.useRef(false);
+  useEffect(() => {
+    if (didFetch.current === false) {
+      fetchArrayInPost(whereFindUs).then((data) => {
+        setStores(data);
+      });
+      didFetch.current = true;
+    }
+  }, []);
 
   return (
     <section className={styles.whereFindUsWrapper}>

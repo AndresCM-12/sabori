@@ -2,6 +2,9 @@ export const URL = "http://sabori.local/graphql";
 
 export const featuredHome = "featured-home";
 export const featuredProducts = "featured-products";
+export const featuredRecipes = "featured-recipes";
+export const featuredBlog = "featured-blog";
+export const whereFindUs = "where-find-us";
 
 export const getSectionsGraphqlQuery = (postName: string) => {
   return `

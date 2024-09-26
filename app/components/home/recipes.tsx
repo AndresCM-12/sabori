@@ -1,15 +1,17 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import redRightArrow from "../../../public/images/red-right-arrow.svg";
 import styles from "../css/home/recipes.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
 import { Pagination } from "swiper/modules";
+import { fetchArrayInPost } from "@/app/utils/methods";
+import { featuredRecipes } from "@/app/utils/constants";
 
 export default function Recipes() {
-  const recipes = [
+  const [recipes, setRecipes] = useState([
     {
       title: "Brochette con gravy",
       image: "https://via.placeholder.com/700x600",
@@ -55,13 +57,22 @@ export default function Recipes() {
       ctaText: "Ver receta",
       time: "15 min",
     },
-  ];
+  ]);
+  const didFetch = React.useRef(false);
+  useEffect(() => {
+    if (didFetch.current === false) {
+      fetchArrayInPost(featuredRecipes).then((data) => {
+        setRecipes(data);
+      });
+      didFetch.current = true;
+    }
+  }, []);
 
   return (
     <section className={styles.recipesWrapper}>
       <div className={styles.titleWrapper}>
         <h3>Recetas</h3>
-        <p>Ver todo</p>
+        <a href="/recetas"><p>Ver todo</p></a>
         <img src={redRightArrow.src} alt="Flecha apuntando a la derecha roja" />
       </div>
       <Swiper
