@@ -1,15 +1,17 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "../css/recipes.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
+import { fetchArrayInPost } from "@/app/utils/methods";
+import { newRecipes } from "@/app/utils/constants";
 
 export default function Recipes() {
-  const recipes = [
+  const [recipes, setRecipes] = useState([
     {
       title: "Brochette con gravy",
       image: "https://via.placeholder.com/700x600",
@@ -55,7 +57,17 @@ export default function Recipes() {
       ctaText: "Ver receta",
       time: "15 min",
     },
-  ];
+  ]);
+
+  const didFetch = useRef(false);
+  useEffect(() => {
+    if (didFetch.current === false) {
+      fetchArrayInPost(newRecipes).then((data) => {
+        setRecipes(data);
+      });
+      didFetch.current = true;
+    }
+  }, []);
 
   return (
     <section className={styles.recipesWrapper}>

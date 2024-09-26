@@ -1,10 +1,12 @@
 "use client";
 
-import { useLayoutEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import fitnessIcon from "../../../public/images/fitness-icon.svg";
 import empaqueIcon from "../../../public/images/empaque.webp";
 import styles from "../css/page.module.css";
 import mobileIconMenu from "../../../public/images/mobile-icon-menu.svg";
+import { fetchArrayInPost } from "@/app/utils/methods";
+import { allProducts } from "@/app/utils/constants";
 
 export default function BlogItems() {
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -24,7 +26,7 @@ export default function BlogItems() {
     });
   }, []);
 
-  const featuredBlog = [
+  const [featuredBlog, setFeaturedBlog] = useState([
     {
       title: "Todos los productos",
       items: [
@@ -200,7 +202,16 @@ export default function BlogItems() {
         },
       ],
     },
-  ];
+  ]);
+  const didFetch = useRef(false);
+  useEffect(() => {
+    if (didFetch.current === false) {
+      fetchArrayInPost(allProducts).then((data) => {
+        setFeaturedBlog(data);
+      });
+      didFetch.current = true;
+    }
+  }, []);
 
   return (
     <div className={styles.wrapper}>

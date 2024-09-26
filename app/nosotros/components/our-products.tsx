@@ -1,5 +1,5 @@
 "use client";
-import React, { useLayoutEffect } from "react";
+import React, { useEffect } from "react";
 import styles from "../css/our-prodcuts.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCoverflow } from "swiper/modules";
@@ -9,9 +9,12 @@ import rightArrow from "../../../public/images/right-arrow.svg";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-coverflow";
+import { fetchArrayInPost } from "@/app/utils/methods";
+import { featuredProducts } from "@/app/utils/constants";
 
 export default function OurProducts() {
-  const products = [
+  const didFetch = React.useRef(false);
+  const [products, setProducts] = React.useState([
     {
       link: "/productos/pechuga-de-pavo",
       image: "https://via.placeholder.com/260x360",
@@ -40,19 +43,15 @@ export default function OurProducts() {
       link: "/productos/pechuga-de-pavo",
       image: "https://via.placeholder.com/260x360",
     },
-    {
-      link: "/productos/pechuga-de-pavo",
-      image: "https://via.placeholder.com/260x360",
-    },
-    {
-      link: "/productos/pechuga-de-pavo",
-      image: "https://via.placeholder.com/260x360",
-    },
-  ];
-  const [windowWidth, setWindowWidth] = React.useState(0);
-  useLayoutEffect(() => {
-    setWindowWidth(window.innerWidth);
-    window.addEventListener("resize", () => setWindowWidth(window.innerWidth));
+  ]);
+
+  useEffect(() => {
+    if (didFetch.current === false) {
+      fetchArrayInPost(featuredProducts).then((data) => {
+        setProducts(data);
+      });
+      didFetch.current = true;
+    }
   }, []);
 
   return (
@@ -67,10 +66,10 @@ export default function OurProducts() {
         <a href="/productos">Ver detalles</a>
       </div>
       <div className={styles.swiperWrapper}>
-        {windowWidth > 0 ? (
+        {didFetch.current ? (
           <Swiper
             id="us-products"
-            slidesPerView={windowWidth / 260}
+            slidesPerView={"auto"}
             spaceBetween={28}
             modules={[EffectCoverflow]}
             effect={"coverflow"}

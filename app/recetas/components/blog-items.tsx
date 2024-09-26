@@ -1,8 +1,10 @@
 "use client";
 
-import { useLayoutEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import styles from "../css/page.module.css";
 import mobileIconMenu from "../../../public/images/primary-mobile-icon-menu.svg";
+import { fetchArrayInPost } from "@/app/utils/methods";
+import { allRecipes } from "@/app/utils/constants";
 
 export default function BlogItems() {
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -22,7 +24,17 @@ export default function BlogItems() {
     });
   }, []);
 
-  const featuredBlog = [
+  const didFetch = useRef(false);
+  useEffect(() => {
+    if (didFetch.current === false) {
+      fetchArrayInPost(allRecipes).then((data) => {
+        setFeaturedBlog(data);
+      });
+      didFetch.current = true;
+    }
+  }, []);
+
+  const [featuredBlog, setFeaturedBlog] = useState([
     {
       title: "Comida",
       items: [
@@ -228,7 +240,7 @@ export default function BlogItems() {
         },
       ],
     },
-  ];
+  ]);
 
   return (
     <div className={styles.wrapper}>

@@ -5,6 +5,10 @@ export const featuredProducts = "featured-products";
 export const featuredRecipes = "featured-recipes";
 export const featuredBlog = "featured-blog";
 export const whereFindUs = "where-find-us";
+export const allProducts = "all-products";
+export const allRecipes = "all-recipes";
+export const allBlogs = "all-blogs";
+export const newRecipes = "new-recipes";
 
 export const getSectionsGraphqlQuery = (postName: string) => {
   return `

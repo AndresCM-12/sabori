@@ -1,164 +1,27 @@
 "use client";
 
-import { useLayoutEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import fitnessIcon from "../../../public/images/fitness-icon.svg";
 import styles from "../css/page.module.css";
 import mobileIconMenu from "../../../public/images/mobile-icon-menu.svg";
+import { fetchArrayInPost } from "@/app/utils/methods";
+import { allBlogs } from "@/app/utils/constants";
 
 export default function BlogItems() {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [showMobileMenu, setShowMobileMenu] = useState(false);
-
-  useLayoutEffect(() => {
-    const decodedHash = decodeURI(window.location.hash.replace("#", ""));
-    if (decodedHash === "") {
-      setSelectedCategory(featuredBlog[0].title);
-      window.location.hash = featuredBlog[0].title;
-    } else {
-      setSelectedCategory(decodedHash);
-    }
-
-    window.addEventListener("scroll", () => {
-      setShowMobileMenu(false);
-    });
-  }, []);
-
-  const featuredBlog = [
+  const [featuredBlog, setFeaturedBlog] = useState([
     {
       title: "Mente",
-      items: [
-        {
-          image: "https://via.placeholder.com/560x560",
-          title: "Tips para ganar músculo",
-          description:
-            "But I must explain to you how all this mistaken idea of denouncing ",
-          ctaLink: "/blog/tips-para-ganar-musculo",
-          ctaText: "Ver más",
-          category: "Fitness",
-          date: "12/12/2021",
-          icon: fitnessIcon.src,
-        },
-        {
-          image: "https://via.placeholder.com/560x560",
-          title: "Tips para ganar músculo",
-          description:
-            "But I must explain to you how all this mistaken idea of denouncing ",
-          ctaLink: "/blog/tips-para-ganar-musculo",
-          ctaText: "Ver más",
-          category: "Fitness",
-          date: "12/12/2021",
-          icon: fitnessIcon.src,
-        },
-        {
-          image: "https://via.placeholder.com/560x560",
-          title: "Tips para ganar músculo",
-          description:
-            "But I must explain to you how all this mistaken idea of denouncing ",
-          ctaLink: "/blog/tips-para-ganar-musculo",
-          ctaText: "Ver más",
-          category: "Fitness",
-          date: "12/12/2021",
-          icon: fitnessIcon.src,
-        },
-        {
-          image: "https://via.placeholder.com/560x560",
-          title: "Tips para ganar músculo",
-          description:
-            "But I must explain to you how all this mistaken idea of denouncing ",
-          ctaLink: "/blog/tips-para-ganar-musculo",
-          ctaText: "Ver más",
-          category: "Fitness",
-          date: "12/12/2021",
-          icon: fitnessIcon.src,
-        },
-        {
-          image: "https://via.placeholder.com/560x560",
-          title: "Tips para ganar músculo",
-          description:
-            "But I must explain to you how all this mistaken idea of denouncing ",
-          ctaLink: "/blog/tips-para-ganar-musculo",
-          ctaText: "Ver más",
-          category: "Fitness",
-          date: "12/12/2021",
-          icon: fitnessIcon.src,
-        },
-        {
-          image: "https://via.placeholder.com/560x560",
-          title: "Tips para ganar músculo",
-          description:
-            "But I must explain to you how all this mistaken idea of denouncing ",
-          ctaLink: "/blog/tips-para-ganar-musculo",
-          ctaText: "Ver más",
-          category: "Fitness",
-          date: "12/12/2021",
-          icon: fitnessIcon.src,
-        },
-      ],
+      items: [],
     },
     {
       title: "Ejercicio",
-      items: [
-        {
-          image: "https://via.placeholder.com/560x560",
-          title: "Tips para ganar músculo",
-          description:
-            "But I must explain to you how all this mistaken idea of denouncing ",
-          ctaLink: "/blog/tips-para-ganar-musculo",
-          ctaText: "Ver más",
-          category: "Fitness",
-          date: "12/12/2021",
-          icon: fitnessIcon.src,
-        },
-        {
-          image: "https://via.placeholder.com/560x560",
-          title: "Tips para ganar músculo",
-          description:
-            "But I must explain to you how all this mistaken idea of denouncing ",
-          ctaLink: "/blog/tips-para-ganar-musculo",
-          ctaText: "Ver más",
-          category: "Fitness",
-          date: "12/12/2021",
-          icon: fitnessIcon.src,
-        },
-      ],
+      items: [],
     },
     {
       title: "Alimentación",
-      items: [
-        {
-          image: "https://via.placeholder.com/560x560",
-          title: "Tips para ganar músculo",
-          description:
-            "But I must explain to you how all this mistaken idea of denouncing ",
-          ctaLink: "/blog/tips-para-ganar-musculo",
-          ctaText: "Ver más",
-          category: "Fitness",
-          date: "12/12/2021",
-          icon: fitnessIcon.src,
-        },
-        {
-          image: "https://via.placeholder.com/560x560",
-          title: "Tips para ganar músculo",
-          description:
-            "But I must explain to you how all this mistaken idea of denouncing ",
-          ctaLink: "/blog/tips-para-ganar-musculo",
-          ctaText: "Ver más",
-          category: "Fitness",
-          date: "12/12/2021",
-          icon: fitnessIcon.src,
-        },
-        {
-          image: "https://via.placeholder.com/560x560",
-          title: "Tips para ganar músculo",
-          description:
-            "But I must explain to you how all this mistaken idea of denouncing ",
-          ctaLink: "/blog/tips-para-ganar-musculo",
-          ctaText: "Ver más",
-          category: "Fitness",
-          date: "12/12/2021",
-          icon: fitnessIcon.src,
-        },
-      ],
+      items: [],
     },
     {
       title: "Estilo de vida",
@@ -176,7 +39,31 @@ export default function BlogItems() {
         },
       ],
     },
-  ];
+  ]);
+  const didFetch = useRef(false);
+
+  useLayoutEffect(() => {
+    const decodedHash = decodeURI(window.location.hash.replace("#", ""));
+    if (decodedHash === "") {
+      setSelectedCategory(featuredBlog[0].title);
+      window.location.hash = featuredBlog[0].title;
+    } else {
+      setSelectedCategory(decodedHash);
+    }
+
+    window.addEventListener("scroll", () => {
+      setShowMobileMenu(false);
+    });
+  }, []);
+
+  useEffect(() => {
+    if (didFetch.current === false) {
+      fetchArrayInPost(allBlogs).then((data) => {
+        setFeaturedBlog(data);
+      });
+      didFetch.current = true;
+    }
+  }, []);
 
   return (
     <div className={styles.wrapper}>
