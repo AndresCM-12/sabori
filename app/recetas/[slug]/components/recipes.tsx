@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "../css/recipes.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -8,9 +8,13 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import redRightArrow from "../../../../public/images/red-right-arrow.svg";
+import { fetchArrayInPost } from "@/app/utils/methods";
+import { featuredRecipes } from "@/app/utils/constants";
 
-export default function Recipes() {
-  const recipes = [
+export default function Recipes({ recipes }: any) {
+  const didFetch = useRef(false);
+
+  const [fetchedRecipes, setRecipes] = useState([
     {
       title: "Brochette con gravy",
       image: "https://via.placeholder.com/700x600",
@@ -25,7 +29,7 @@ export default function Recipes() {
       image: "https://via.placeholder.com/700x600",
       description:
         "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
-      ctaLink: "/recetas/champinones-rellenos",
+      ctaLink: "link1",
       ctaText: "Ver receta",
       time: "25 min",
     },
@@ -34,7 +38,7 @@ export default function Recipes() {
       image: "https://via.placeholder.com/700x600",
       description:
         "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
-      ctaLink: "/recetas/brochette-con-gravy",
+      ctaLink: "link1",
       ctaText: "Ver receta",
       time: "20 min",
     },
@@ -43,7 +47,7 @@ export default function Recipes() {
       image: "https://via.placeholder.com/700x600",
       description:
         "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
-      ctaLink: "/recetas/brochette-con-gravy",
+      ctaLink: "link1",
       ctaText: "Ver receta",
       time: "35 min",
     },
@@ -52,11 +56,20 @@ export default function Recipes() {
       image: "https://via.placeholder.com/700x600",
       description:
         "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
-      ctaLink: "/recetas/brochette-con-gravy",
+      ctaLink: "link1",
       ctaText: "Ver receta",
       time: "15 min",
     },
-  ];
+  ]);
+
+  useEffect(() => {
+    if (!recipes && didFetch.current === false) {
+      fetchArrayInPost(featuredRecipes).then((data) => {
+        setRecipes(data);
+      });
+      didFetch.current = true;
+    }
+  }, []);
 
   return (
     <section className={styles.recipesWrapper}>
@@ -98,23 +111,41 @@ export default function Recipes() {
             alt="Flecha apuntando a la derecha roja"
           />
         </div>
-        {recipes.map((recipe, index) => (
-          <SwiperSlide
-            className={styles.recipeCard}
-            key={index}
-            style={{
-              height: "600px",
-            }}
-          >
-            <img src={recipe.image} alt={recipe.title} />
-            <span>{recipe.time}</span>
-            <div className={styles.recipeInfo}>
-              <h4>{recipe.title}</h4>
-              <p>{recipe.description}</p>
-              <a href={recipe.ctaLink}>{recipe.ctaText}</a>
-            </div>
-          </SwiperSlide>
-        ))}
+        {!recipes
+          ? fetchedRecipes.map((recipe: any, index: number) => (
+              <SwiperSlide
+                className={styles.recipeCard}
+                key={index}
+                style={{
+                  height: "600px",
+                }}
+              >
+                <img src={recipe.image} alt={recipe.title} />
+                <span>{recipe.time}</span>
+                <div className={styles.recipeInfo}>
+                  <h4>{recipe.title}</h4>
+                  <p>{recipe.description}</p>
+                  <a href={recipe.ctaLink}>{recipe.ctaText}</a>
+                </div>
+              </SwiperSlide>
+            ))
+          : recipes.map((recipe: any, index: number) => (
+              <SwiperSlide
+                className={styles.recipeCard}
+                key={index}
+                style={{
+                  height: "600px",
+                }}
+              >
+                <img src={recipe.image} alt={recipe.title} />
+                <span>{recipe.time}</span>
+                <div className={styles.recipeInfo}>
+                  <h4>{recipe.title}</h4>
+                  <p>{recipe.description}</p>
+                  <a href={recipe.ctaLink}>{recipe.ctaText}</a>
+                </div>
+              </SwiperSlide>
+            ))}
       </Swiper>
     </section>
   );

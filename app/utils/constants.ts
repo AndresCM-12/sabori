@@ -30,3 +30,66 @@ export const getSectionsGraphqlQuery = (postName: string) => {
     }
     `;
 };
+
+export const getProductsGraphqlQuery = (postName: string) => {
+  return `
+    query get_post_by_name {
+      categories(where: {name: "products"}) {
+        edges {
+          node {
+            id
+            posts(where: {name: "${postName}"}) {
+              edges {
+                node {
+                  content
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    `;
+};
+
+export const getRecipesGraphqlQuery = (postName: string) => {
+  return `
+    query get_post_by_name {
+      categories(where: {name: "recipes"}) {
+        edges {
+          node {
+            id
+            posts(where: {name: "${postName}"}) {
+              edges {
+                node {
+                  content
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    `;
+};
+
+export const getBlogsGraphqlQuery = (postName: string) => {
+  return `
+    query get_post_by_name {
+      categories(where: {name: "blogs"}) {
+        edges {
+          node {
+            id
+            posts(where: {name: "${postName}"}) {
+              edges {
+                node {
+                  content
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    `;
+};

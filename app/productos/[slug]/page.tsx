@@ -1,12 +1,15 @@
+"use client";
 import styles from "./css/page.module.css";
 import WhereFindUs from "@/app/components/where-find-us";
 import OurProducts from "@/app/nosotros/components/our-products";
 import Recipes from "@/app/recetas/[slug]/components/recipes";
 import fitnessIcon from "../../../public/images/fitness-icon.svg";
 import contactImage from "../../../public/images/contact-cover.webp";
+import { useEffect, useRef, useState } from "react";
+import { fetchArrayInProduct, fetchArrayInRecipe } from "@/app/utils/methods";
 
 export default function Home() {
-  const productDetails = {
+  const [productDetails, setProductDetails] = useState({
     title: "Pechuga de pavo extrafina",
     details: [
       {
@@ -55,7 +58,65 @@ export default function Home() {
     ],
     productImage:
       "https://sabori.com.mx/wp-content/uploads/2020/08/Pechuga-de-Pavo-Al-Natural-Triple-Click.png",
-  };
+    recipes: [
+      {
+        title: "Brochette con gravy",
+        image: "https://via.placeholder.com/700x600",
+        description:
+          "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
+        ctaLink: "/recetas/brochette-con-gravy",
+        ctaText: "Ver receta",
+        time: "30 min",
+      },
+      {
+        title: "Champiñones rellenos",
+        image: "https://via.placeholder.com/700x600",
+        description:
+          "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
+        ctaLink: "/recetas/champinones-rellenos",
+        ctaText: "Ver receta",
+        time: "25 min",
+      },
+      {
+        title: "Panini",
+        image: "https://via.placeholder.com/700x600",
+        description:
+          "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
+        ctaLink: "/recetas/brochette-con-gravy",
+        ctaText: "Ver receta",
+        time: "20 min",
+      },
+      {
+        title: "Receta 1",
+        image: "https://via.placeholder.com/700x600",
+        description:
+          "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
+        ctaLink: "/recetas/brochette-con-gravy",
+        ctaText: "Ver receta",
+        time: "35 min",
+      },
+      {
+        title: "Receta 1",
+        image: "https://via.placeholder.com/700x600",
+        description:
+          "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
+        ctaLink: "/recetas/brochette-con-gravy",
+        ctaText: "Ver receta",
+        time: "15 min",
+      },
+    ],
+  });
+
+  const didFetch = useRef(false);
+  useEffect(() => {
+    const recipeId = window.location.pathname.split("/")[2];
+    if (didFetch.current === false) {
+      fetchArrayInRecipe(recipeId).then((data) => {
+        setProductDetails(data);
+      });
+      didFetch.current = true;
+    }
+  }, []);
 
   return (
     <>
@@ -72,7 +133,10 @@ export default function Home() {
             <h1>{productDetails.title}</h1>
             <div className={styles.details}>
               {productDetails.details.map((detail, index) => (
-                <div key={index} className={styles.detailWrapper}>
+                <div
+                  key={index + detail.title}
+                  className={styles.detailWrapper}
+                >
                   <img
                     height={46}
                     width={40}
@@ -116,7 +180,7 @@ export default function Home() {
       <OurProducts />
       <div style={{ height: "240px" }}></div>
       <WhereFindUs title="Distribuidores" />
-      <Recipes />
+      <Recipes recipes={productDetails.recipes} />
       <div className={styles.contactWrapper}>
         <div className={styles.textWrapperRelative}>
           <div className={styles.textWrapper}>
