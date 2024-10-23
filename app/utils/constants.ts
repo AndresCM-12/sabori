@@ -1,4 +1,4 @@
-export const URL = "https://sabori.com.mx/crm-api/graphql";
+export const URL = "https://sabori.com.mx/graphql";
 
 export const featuredHome = "featured-home";
 export const featuredProducts = "featured-products";
