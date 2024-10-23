@@ -12,7 +12,7 @@ export default function HomeBanner() {
   const didFetch = React.useRef(false);
   const [carouselData, setCarouselData] = React.useState([
     {
-      image: "https://via.placeholder.com/1920x1080",
+      image: "https://placehold.co/600x400",
       title: "Pasta a los tres quesos",
       description:
         "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
@@ -20,7 +20,7 @@ export default function HomeBanner() {
       ctaLink: "/cta-link-1",
     },
     {
-      image: "https://via.placeholder.com/1920x1080",
+      image: "https://placehold.co/600x400",
       title: "Pasta a los tres quesos 2",
       description:
         "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
@@ -28,7 +28,7 @@ export default function HomeBanner() {
       ctaLink: "/cta-link-2",
     },
     {
-      image: "https://via.placeholder.com/1920x1080",
+      image: "https://placehold.co/600x400",
       title: "Pasta a los tres quesos 3",
       description:
         "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
@@ -36,7 +36,7 @@ export default function HomeBanner() {
       ctaLink: "/cta-link-3",
     },
     {
-      image: "https://via.placeholder.com/1920x1080",
+      image: "https://placehold.co/600x400",
       title: "Pasta a los tres quesos 3",
       description:
         "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",

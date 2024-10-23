@@ -13,21 +13,112 @@ export default function BlogItems() {
   const [featuredBlog, setFeaturedBlog] = useState([
     {
       title: "Mente",
-      items: [],
+      items: [
+        {
+          image: "https://placehold.co/600x400",
+          title: "Tips para ganar músculo",
+          description:
+            "But I must explain to you how all this mistaken idea of denouncing ",
+          ctaLink: "/blog/tips-para-ganar-musculo",
+          ctaText: "Ver más",
+          category: "Fitness",
+          date: "12/12/2021",
+          icon: fitnessIcon.src,
+        },
+        {
+          image: "https://placehold.co/600x400",
+          title: "Tips para ganar músculo",
+          description:
+            "But I must explain to you how all this mistaken idea of denouncing ",
+          ctaLink: "/blog/tips-para-ganar-musculo",
+          ctaText: "Ver más",
+          category: "Fitness",
+          date: "12/12/2021",
+          icon: fitnessIcon.src,
+        },
+        {
+          image: "https://placehold.co/600x400",
+          title: "Tips para ganar músculo",
+          description:
+            "But I must explain to you how all this mistaken idea of denouncing ",
+          ctaLink: "/blog/tips-para-ganar-musculo",
+          ctaText: "Ver más",
+          category: "Fitness",
+          date: "12/12/2021",
+          icon: fitnessIcon.src,
+        },
+        {
+          image: "https://placehold.co/600x400",
+          title: "Tips para ganar músculo",
+          description:
+            "But I must explain to you how all this mistaken idea of denouncing ",
+          ctaLink: "/blog/tips-para-ganar-musculo",
+          ctaText: "Ver más",
+          category: "Fitness",
+          date: "12/12/2021",
+          icon: fitnessIcon.src,
+        },
+        {
+          image: "https://placehold.co/600x400",
+          title: "Tips para ganar músculo",
+          description:
+            "But I must explain to you how all this mistaken idea of denouncing ",
+          ctaLink: "/blog/tips-para-ganar-musculo",
+          ctaText: "Ver más",
+          category: "Fitness",
+          date: "12/12/2021",
+          icon: fitnessIcon.src,
+        },
+        {
+          image: "https://placehold.co/600x400",
+          title: "Tips para ganar músculo",
+          description:
+            "But I must explain to you how all this mistaken idea of denouncing ",
+          ctaLink: "/blog/tips-para-ganar-musculo",
+          ctaText: "Ver más",
+          category: "Fitness",
+          date: "12/12/2021",
+          icon: fitnessIcon.src,
+        },
+      ],
     },
     {
       title: "Ejercicio",
-      items: [],
+      items: [
+        {
+          image: "https://placehold.co/600x400",
+          title: "Tips para ganar músculo",
+          description:
+            "But I must explain to you how all this mistaken idea of denouncing ",
+          ctaLink: "/blog/tips-para-ganar-musculo",
+          ctaText: "Ver más",
+          category: "Fitness",
+          date: "12/12/2021",
+          icon: fitnessIcon.src,
+        },
+      ],
     },
     {
       title: "Alimentación",
-      items: [],
+      items: [
+        {
+          image: "https://placehold.co/600x400",
+          title: "Tips para ganar músculo",
+          description:
+            "But I must explain to you how all this mistaken idea of denouncing ",
+          ctaLink: "/blog/tips-para-ganar-musculo",
+          ctaText: "Ver más",
+          category: "Fitness",
+          date: "12/12/2021",
+          icon: fitnessIcon.src,
+        },
+      ],
     },
     {
       title: "Estilo de vida",
       items: [
         {
-          image: "https://via.placeholder.com/560x560",
+          image: "https://placehold.co/600x400",
           title: "Tips para ganar músculo",
           description:
             "But I must explain to you how all this mistaken idea of denouncing ",

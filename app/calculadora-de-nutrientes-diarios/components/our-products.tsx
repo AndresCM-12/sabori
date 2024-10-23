@@ -17,31 +17,31 @@ export default function OurProducts() {
   const [products, setProducts] = React.useState([
     {
       link: "/productos/pechuga-de-pavo",
-      image: "https://via.placeholder.com/260x360",
+      image: "https://placehold.co/600x400",
     },
     {
       link: "/productos/pechuga-de-pavo",
-      image: "https://via.placeholder.com/260x360",
+      image: "https://placehold.co/600x400",
     },
     {
       link: "/productos/pechuga-de-pavo",
-      image: "https://via.placeholder.com/260x360",
+      image: "https://placehold.co/600x400",
     },
     {
       link: "/productos/pechuga-de-pavo",
-      image: "https://via.placeholder.com/260x360",
+      image: "https://placehold.co/600x400",
     },
     {
       link: "/productos/pechuga-de-pavo",
-      image: "https://via.placeholder.com/260x360",
+      image: "https://placehold.co/600x400",
     },
     {
       link: "/productos/pechuga-de-pavo",
-      image: "https://via.placeholder.com/260x360",
+      image: "https://placehold.co/600x400",
     },
     {
       link: "/productos/pechuga-de-pavo",
-      image: "https://via.placeholder.com/260x360",
+      image: "https://placehold.co/600x400",
     },
   ]);
 

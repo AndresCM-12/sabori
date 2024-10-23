@@ -7,7 +7,7 @@ import FeaturedBlog from "./components/home/featured-blog";
 import AboutUs from "./components/home/about-us";
 import WhereFindUs from "./components/where-find-us";
 import Header from "./components/header/header";
-import Footer from "./components/footer";
+import CustomFooter from "./components/footer";
 
 export default function Home() {
   return (
@@ -35,7 +35,7 @@ export default function Home() {
         <AboutUs />
         <WhereFindUs title={"Dónde encontrarnos"} />
       </main>
-      <Footer />
+      <CustomFooter />
     </>
   );
 }

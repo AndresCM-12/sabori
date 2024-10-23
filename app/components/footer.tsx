@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./css/footer.module.css";
 import saboriLogo from "../../public/images/sabori-logo.webp";
 
-export default function Footer() {
+export default function CustomFooter() {
   return (
     <footer className={styles.footer}>
       <div className={styles.footerSeparator}></div>

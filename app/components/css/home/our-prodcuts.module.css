@@ -41,6 +41,13 @@
   height: 360px;
 }
 
+.slideWrapper img {
+  width: 260px;
+  height: 360px;
+  object-fit: contain;
+  cursor: pointer;
+}
+
 .swiperControl {
   display: flex;
   justify-content: center;

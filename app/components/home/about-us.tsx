@@ -14,7 +14,7 @@ export default function AboutUs() {
         <a href="/nosotros">Ver más</a>
       </div>
       <img
-        src="https://via.placeholder.com/800x720"
+        src="https://placehold.co/600x400"
         alt="Imagen de muestra de nostros"
       />
     </section>

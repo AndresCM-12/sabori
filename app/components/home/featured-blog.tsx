@@ -9,7 +9,7 @@ import { featuredBlog } from "@/app/utils/constants";
 export default function FeaturedBlog() {
   const [blogs, setFeaturedBlog] = useState([
     {
-      image: "https://via.placeholder.com/560x560",
+      image: "https://placehold.co/600x400",
       title: "Tips para ganar músculo",
       description:
         "But I must explain to you how all this mistaken idea of denouncing ",
@@ -20,7 +20,7 @@ export default function FeaturedBlog() {
       icon: fitnessIcon.src,
     },
     {
-      image: "https://via.placeholder.com/560x560",
+      image: "https://placehold.co/600x400",
       title: "Tips para ganar músculo",
       description:
         "But I must explain to you how all this mistaken idea of denouncing ",
@@ -31,7 +31,7 @@ export default function FeaturedBlog() {
       icon: fitnessIcon.src,
     },
     {
-      image: "https://via.placeholder.com/560x560",
+      image: "https://placehold.co/600x400",
       title: "Tips para ganar músculo",
       description:
         "But I must explain to you how all this mistaken idea of denouncing ",

@@ -17,7 +17,7 @@ export default function Recipes({ recipes }: any) {
   const [fetchedRecipes, setRecipes] = useState([
     {
       title: "Brochette con gravy",
-      image: "https://via.placeholder.com/700x600",
+      image: "https://placehold.co/600x400",
       description:
         "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
       ctaLink: "/recetas/brochette-con-gravy",
@@ -26,7 +26,7 @@ export default function Recipes({ recipes }: any) {
     },
     {
       title: "Champiñones rellenos",
-      image: "https://via.placeholder.com/700x600",
+      image: "https://placehold.co/600x400",
       description:
         "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
       ctaLink: "link1",
@@ -35,7 +35,7 @@ export default function Recipes({ recipes }: any) {
     },
     {
       title: "Panini",
-      image: "https://via.placeholder.com/700x600",
+      image: "https://placehold.co/600x400",
       description:
         "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
       ctaLink: "link1",
@@ -44,7 +44,7 @@ export default function Recipes({ recipes }: any) {
     },
     {
       title: "Receta 1",
-      image: "https://via.placeholder.com/700x600",
+      image: "https://placehold.co/600x400",
       description:
         "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
       ctaLink: "link1",
@@ -53,7 +53,7 @@ export default function Recipes({ recipes }: any) {
     },
     {
       title: "Receta 1",
-      image: "https://via.placeholder.com/700x600",
+      image: "https://placehold.co/600x400",
       description:
         "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
       ctaLink: "link1",

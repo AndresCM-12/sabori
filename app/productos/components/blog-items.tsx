@@ -31,7 +31,7 @@ export default function BlogItems() {
       title: "Todos los productos",
       items: [
         {
-          image: "https://via.placeholder.com/260x400",
+          image: "https://placehold.co/600x400",
           title: "Pechuga de pavo extrafina",
           description:
             "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
@@ -41,7 +41,7 @@ export default function BlogItems() {
           extraIcon: fitnessIcon.src,
         },
         {
-          image: "https://via.placeholder.com/260x400",
+          image: "https://placehold.co/600x400",
           title: "Pechuga de pavo extrafina",
           description:
             "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
@@ -56,7 +56,7 @@ export default function BlogItems() {
       title: "Pechugas",
       items: [
         {
-          image: "https://via.placeholder.com/260x400",
+          image: "https://placehold.co/600x400",
           title: "Pechuga de pavo extrafina",
           description:
             "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
@@ -66,7 +66,7 @@ export default function BlogItems() {
           extraIcon: fitnessIcon.src,
         },
         {
-          image: "https://via.placeholder.com/260x400",
+          image: "https://placehold.co/600x400",
           title: "Pechuga de pavo extrafina",
           description:
             "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
@@ -81,7 +81,7 @@ export default function BlogItems() {
       title: "Jamones",
       items: [
         {
-          image: "https://via.placeholder.com/260x400",
+          image: "https://placehold.co/600x400",
           title: "Pechuga de pavo extrafina",
           description:
             "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
@@ -91,7 +91,7 @@ export default function BlogItems() {
           extraIcon: fitnessIcon.src,
         },
         {
-          image: "https://via.placeholder.com/260x400",
+          image: "https://placehold.co/600x400",
           title: "Pechuga de pavo extrafina",
           description:
             "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
@@ -106,7 +106,7 @@ export default function BlogItems() {
       title: "Salchichas",
       items: [
         {
-          image: "https://via.placeholder.com/260x400",
+          image: "https://placehold.co/600x400",
           title: "Pechuga de pavo extrafina",
           description:
             "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
@@ -116,7 +116,7 @@ export default function BlogItems() {
           extraIcon: fitnessIcon.src,
         },
         {
-          image: "https://via.placeholder.com/260x400",
+          image: "https://placehold.co/600x400",
           title: "Pechuga de pavo extrafina",
           description:
             "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
@@ -131,7 +131,7 @@ export default function BlogItems() {
       title: "Chorizos",
       items: [
         {
-          image: "https://via.placeholder.com/260x400",
+          image: "https://placehold.co/600x400",
           title: "Pechuga de pavo extrafina",
           description:
             "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
@@ -141,7 +141,7 @@ export default function BlogItems() {
           extraIcon: fitnessIcon.src,
         },
         {
-          image: "https://via.placeholder.com/260x400",
+          image: "https://placehold.co/600x400",
           title: "Pechuga de pavo extrafina",
           description:
             "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
@@ -156,7 +156,7 @@ export default function BlogItems() {
       title: "Quesos",
       items: [
         {
-          image: "https://via.placeholder.com/260x400",
+          image: "https://placehold.co/600x400",
           title: "Pechuga de pavo extrafina",
           description:
             "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
@@ -166,7 +166,7 @@ export default function BlogItems() {
           extraIcon: fitnessIcon.src,
         },
         {
-          image: "https://via.placeholder.com/260x400",
+          image: "https://placehold.co/600x400",
           title: "Pechuga de pavo extrafina",
           description:
             "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
@@ -181,7 +181,7 @@ export default function BlogItems() {
       title: "Tocinos",
       items: [
         {
-          image: "https://via.placeholder.com/260x400",
+          image: "https://placehold.co/600x400",
           title: "Pechuga de pavo extrafina",
           description:
             "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
@@ -191,7 +191,7 @@ export default function BlogItems() {
           extraIcon: fitnessIcon.src,
         },
         {
-          image: "https://via.placeholder.com/260x400",
+          image: "https://placehold.co/600x400",
           title: "Pechuga de pavo extrafina",
           description:
             "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
@@ -204,6 +204,7 @@ export default function BlogItems() {
     },
   ]);
   const didFetch = useRef(false);
+
   useEffect(() => {
     if (didFetch.current === false) {
       fetchArrayInPost(allProducts).then((data) => {

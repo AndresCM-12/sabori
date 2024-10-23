@@ -17,31 +17,31 @@ export default function OurProducts() {
   const [products, setProducts] = React.useState([
     {
       link: "/productos/pechuga-de-pavo",
-      image: "https://via.placeholder.com/260x360",
+      image: "https://placehold.co/600x400",
     },
     {
       link: "/productos/pechuga-de-pavo",
-      image: "https://via.placeholder.com/260x360",
+      image: "https://placehold.co/600x400",
     },
     {
       link: "/productos/pechuga-de-pavo",
-      image: "https://via.placeholder.com/260x360",
+      image: "https://placehold.co/600x400",
     },
     {
       link: "/productos/pechuga-de-pavo",
-      image: "https://via.placeholder.com/260x360",
+      image: "https://placehold.co/600x400",
     },
     {
       link: "/productos/pechuga-de-pavo",
-      image: "https://via.placeholder.com/260x360",
+      image: "https://placehold.co/600x400",
     },
     {
       link: "/productos/pechuga-de-pavo",
-      image: "https://via.placeholder.com/260x360",
+      image: "https://placehold.co/600x400",
     },
     {
       link: "/productos/pechuga-de-pavo",
-      image: "https://via.placeholder.com/260x360",
+      image: "https://placehold.co/600x400",
     },
   ]);
 
@@ -66,31 +66,32 @@ export default function OurProducts() {
         <a href="/productos">Ver detalles</a>
       </div>
       <div className={styles.swiperWrapper}>
-        {didFetch.current && (
-          <Swiper
-            id="home-products"
-            slidesPerView={"auto"}
-            spaceBetween={28}
-            modules={[EffectCoverflow]}
-            effect={"coverflow"}
-            grabCursor={true}
-            initialSlide={Math.floor(products.length / 2)}
-            centeredSlides={true}
-            coverflowEffect={{
-              rotate: 0,
-              stretch: 0,
-              depth: 100,
-              modifier: 1,
-              slideShadows: false,
-            }}
-          >
-            {products.map((item, index) => (
-              <SwiperSlide className={styles.slideWrapper} key={index}>
+        <Swiper
+          id="home-products"
+          slidesPerView={"auto"}
+          spaceBetween={28}
+          modules={[EffectCoverflow]}
+          effect={"coverflow"}
+          grabCursor={true}
+          initialSlide={Math.floor(products.length / 2)}
+          centeredSlides={true}
+          coverflowEffect={{
+            rotate: 0,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: false,
+          }}
+        >
+          {products.map((item, index) => (
+            <SwiperSlide className={styles.slideWrapper} key={index}>
+              <a href={item.link}>
                 <img src={item.image} alt="Imagen de producto" />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        )}
+              </a>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
         <div className={styles.swiperControl}>
           <img
             width={20}

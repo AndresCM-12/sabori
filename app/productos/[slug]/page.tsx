@@ -61,7 +61,7 @@ export default function Home() {
     recipes: [
       {
         title: "Brochette con gravy",
-        image: "https://via.placeholder.com/700x600",
+        image: "https://placehold.co/600x400",
         description:
           "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
         ctaLink: "/recetas/brochette-con-gravy",
@@ -70,7 +70,7 @@ export default function Home() {
       },
       {
         title: "Champiñones rellenos",
-        image: "https://via.placeholder.com/700x600",
+        image: "https://placehold.co/600x400",
         description:
           "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
         ctaLink: "/recetas/champinones-rellenos",
@@ -79,7 +79,7 @@ export default function Home() {
       },
       {
         title: "Panini",
-        image: "https://via.placeholder.com/700x600",
+        image: "https://placehold.co/600x400",
         description:
           "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
         ctaLink: "/recetas/brochette-con-gravy",
@@ -88,7 +88,7 @@ export default function Home() {
       },
       {
         title: "Receta 1",
-        image: "https://via.placeholder.com/700x600",
+        image: "https://placehold.co/600x400",
         description:
           "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
         ctaLink: "/recetas/brochette-con-gravy",
@@ -97,7 +97,7 @@ export default function Home() {
       },
       {
         title: "Receta 1",
-        image: "https://via.placeholder.com/700x600",
+        image: "https://placehold.co/600x400",
         description:
           "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system",
         ctaLink: "/recetas/brochette-con-gravy",
@@ -164,7 +164,7 @@ export default function Home() {
             <div className={styles.separator}></div>
 
             {productDetails.nutritionFacts.map((fact, index) => (
-              <div className={styles.rowWrapper}>
+              <div className={styles.rowWrapper} key={index}>
                 <div key={index} className={styles.row}>
                   <p>{fact.name}</p>
                   <p>{fact.value}</p>

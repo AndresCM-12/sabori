@@ -17,31 +17,31 @@ export default function OurProducts() {
   const [products, setProducts] = React.useState([
     {
       link: "/productos/pechuga-de-pavo",
-      image: "https://via.placeholder.com/260x360",
+      image: "https://placehold.co/600x400",
     },
     {
       link: "/productos/pechuga-de-pavo",
-      image: "https://via.placeholder.com/260x360",
+      image: "https://placehold.co/600x400",
     },
     {
       link: "/productos/pechuga-de-pavo",
-      image: "https://via.placeholder.com/260x360",
+      image: "https://placehold.co/600x400",
     },
     {
       link: "/productos/pechuga-de-pavo",
-      image: "https://via.placeholder.com/260x360",
+      image: "https://placehold.co/600x400",
     },
     {
       link: "/productos/pechuga-de-pavo",
-      image: "https://via.placeholder.com/260x360",
+      image: "https://placehold.co/600x400",
     },
     {
       link: "/productos/pechuga-de-pavo",
-      image: "https://via.placeholder.com/260x360",
+      image: "https://placehold.co/600x400",
     },
     {
       link: "/productos/pechuga-de-pavo",
-      image: "https://via.placeholder.com/260x360",
+      image: "https://placehold.co/600x400",
     },
   ]);
 
@@ -93,7 +93,9 @@ export default function OurProducts() {
                 }}
                 key={index}
               >
-                <img src={item.image} alt="Imagen de producto" />
+                <a href={item.link}>
+                  <img src={item.image} alt="Imagen de producto" />
+                </a>
               </SwiperSlide>
             ))}
           </Swiper>
