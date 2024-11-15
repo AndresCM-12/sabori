@@ -1,7 +1,7 @@
 import styles from "./css/page.module.css";
-import BlogItems from "./components/blog-items";
-import Recipes from "./components/recipes";
-import WhereFindUs from "../components/where-find-us";
+import BlogItems from "./components/blog-items/blog-items";
+import Recipes from "./components/recipes/recipes";
+import WhereFindUs from "../components/where-find-us/where-find-us";
 
 export default function Home() {
   return (

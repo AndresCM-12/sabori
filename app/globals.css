@@ -21,6 +21,12 @@ a {
   bottom: 0px !important;
   width: fit-content !important;
 }
+#recipes-two-swiper .swiper-pagination-horizontal {
+  position: absolute;
+  left: 0px;
+  bottom: 0px !important;
+  width: fit-content !important;
+}
 
 #recipes-page-swiper .swiper-pagination-horizontal {
   position: absolute;

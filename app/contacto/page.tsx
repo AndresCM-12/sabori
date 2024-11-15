@@ -1,6 +1,6 @@
 import styles from "./css/page.module.css";
 import contactoCover from "../../public/images/contacto-cover.webp";
-import WhereFindUs from "../components/where-find-us";
+import WhereFindUs from "../components/where-find-us/where-find-us";
 
 export default function Home() {
   return (

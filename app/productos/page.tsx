@@ -1,7 +1,7 @@
 import styles from "./css/page.module.css";
 import blogCover from "../../public/images/products-cover.webp";
 import BlogItems from "./components/blog-items";
-import WhereFindUs from "../components/where-find-us";
+import WhereFindUs from "../components/where-find-us/where-find-us";
 
 export default function Home() {
   return (

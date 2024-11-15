@@ -30,7 +30,7 @@
 
 .recipeCard {
   position: relative;
-  width: 700px;
+  width: 700px !important;
   height: 600px;
   display: flex;
   justify-content: flex-start;
@@ -58,6 +58,12 @@
 
 .recipeInfo {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  height: 100%;
+  justify-content: flex-end;
+  align-items: flex-start;
 }
 
 .recipeInfo h4 {
@@ -104,7 +110,7 @@
 
   .recipeCard {
     position: relative;
-    width: 320px;
+    width: 320px !important;
     height: 500px;
     display: flex;
     justify-content: flex-start;
@@ -120,7 +126,7 @@
 
   .recipeCard {
     position: relative;
-    width: 300px;
+    width: 300px !important;
     height: 500px;
     display: flex;
     justify-content: flex-start;

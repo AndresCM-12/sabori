@@ -1,59 +1,20 @@
 "use client";
-import React, { useEffect } from "react";
-import styles from "../css/home/our-prodcuts.module.css";
+import React from "react";
+import styles from "../../css/our-prodcuts.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCoverflow } from "swiper/modules";
-import leftArrow from "../../../public/images/left-arrow.svg";
-import rightArrow from "../../../public/images/right-arrow.svg";
+import leftArrow from "../../../../public/images/left-arrow.svg";
+import rightArrow from "../../../../public/images/right-arrow.svg";
 
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-coverflow";
-import { fetchArrayInPost } from "@/app/utils/methods";
-import { featuredProducts } from "@/app/utils/constants";
 
-export default function OurProducts() {
-  const didFetch = React.useRef(false);
-  const [products, setProducts] = React.useState([
-    {
-      link: "/productos/pechuga-de-pavo",
-      image: "https://placehold.co/600x400",
-    },
-    {
-      link: "/productos/pechuga-de-pavo",
-      image: "https://placehold.co/600x400",
-    },
-    {
-      link: "/productos/pechuga-de-pavo",
-      image: "https://placehold.co/600x400",
-    },
-    {
-      link: "/productos/pechuga-de-pavo",
-      image: "https://placehold.co/600x400",
-    },
-    {
-      link: "/productos/pechuga-de-pavo",
-      image: "https://placehold.co/600x400",
-    },
-    {
-      link: "/productos/pechuga-de-pavo",
-      image: "https://placehold.co/600x400",
-    },
-    {
-      link: "/productos/pechuga-de-pavo",
-      image: "https://placehold.co/600x400",
-    },
-  ]);
-
-  useEffect(() => {
-    if (didFetch.current === false) {
-      fetchArrayInPost(featuredProducts).then((data) => {
-        setProducts(data);
-      });
-      didFetch.current = true;
-    }
-  }, []);
-
+export default function OurProductsClientWrapper({
+  products,
+}: {
+  products: any;
+}) {
   return (
     <section>
       <div className={styles.textWrapper}>
@@ -67,7 +28,7 @@ export default function OurProducts() {
       </div>
       <div className={styles.swiperWrapper}>
         <Swiper
-          id="home-products"
+          id="us-products"
           slidesPerView={"auto"}
           spaceBetween={28}
           modules={[EffectCoverflow]}
@@ -83,8 +44,15 @@ export default function OurProducts() {
             slideShadows: false,
           }}
         >
-          {products.map((item, index) => (
-            <SwiperSlide className={styles.slideWrapper} key={index}>
+          {products.map((item: any, index: number) => (
+            <SwiperSlide
+              className={styles.slideWrapper}
+              style={{
+                width: "260px",
+                height: "360px",
+              }}
+              key={index}
+            >
               <a href={item.link}>
                 <img src={item.image} alt="Imagen de producto" />
               </a>
@@ -98,7 +66,7 @@ export default function OurProducts() {
             src={leftArrow.src}
             onClick={() => {
               (
-                document.getElementById("home-products") as any
+                document.getElementById("us-products") as any
               ).swiper.slidePrev();
             }}
           ></img>
@@ -108,7 +76,7 @@ export default function OurProducts() {
             src={rightArrow.src}
             onClick={() => {
               (
-                document.getElementById("home-products") as any
+                document.getElementById("us-products") as any
               ).swiper.slideNext();
             }}
           ></img>

@@ -2,12 +2,14 @@
 import React, { useEffect } from "react";
 import styles from "./css/calculator.module.css";
 import FeaturedBlog from "@/app/blog/[slug]/components/featured-blog";
-import Recipes from "@/app/components/home/recipes";
+import Recipes from "@/app/components/home/recipes/recipes";
 import OurProducts from "./our-products";
 import stepSixCoverImage from "../../../public/images/stepsix-cover.webp";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
+import ClientOurProducts from "@/app/components/home/our-products/client.our-products";
+import ClientRecipes from "@/app/components/home/recipes/client.recipes";
 
 export default function Calculator() {
   const [currentStep, setCurrentStep] = React.useState(0);
@@ -129,8 +131,8 @@ export default function Calculator() {
             <a href="/blog">ver todo</a>
           </div>
           <FeaturedBlog />
-          <Recipes />
-          <OurProducts />
+          <ClientRecipes />
+          <ClientOurProducts />
           <div
             style={{
               height: "160px",

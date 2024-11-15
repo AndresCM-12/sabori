@@ -5,6 +5,7 @@ import fitnessIcon from "../../../public/images/fitness-icon.svg";
 import FeaturedBlog from "./components/featured-blog";
 import { useEffect, useRef, useState } from "react";
 import { fetchArrayInBlog } from "@/app/utils/methods";
+import Loading from "@/app/components/loading";
 
 export default function Home() {
   const [blogDetails, setBlogDetails] = useState({
@@ -33,7 +34,7 @@ export default function Home() {
     }
   }, []);
 
-  return (
+  return didFetch.current ? (
     <>
       <main className={styles.main}>
         <div className={styles.imageWrapper}>
@@ -55,5 +56,7 @@ export default function Home() {
       </main>
       <FeaturedBlog />
     </>
+  ) : (
+    <Loading />
   );
 }

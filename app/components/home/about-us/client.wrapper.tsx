@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "../css/home/about-us.module.css";
+import styles from "../../css/home/about-us.module.css";
 
-export default function AboutUs() {
+export default function AboutUsClientWrapper() {
   return (
     <section className={styles.aboutUsWrapper}>
       <div className={styles.textWrapper}>

@@ -1,12 +1,14 @@
 "use client";
 import styles from "./css/page.module.css";
-import WhereFindUs from "@/app/components/where-find-us";
-import OurProducts from "@/app/nosotros/components/our-products";
 import Recipes from "@/app/recetas/[slug]/components/recipes";
 import fitnessIcon from "../../../public/images/fitness-icon.svg";
 import contactImage from "../../../public/images/contact-cover.webp";
 import { useEffect, useRef, useState } from "react";
-import { fetchArrayInProduct, fetchArrayInRecipe } from "@/app/utils/methods";
+import { fetchArrayInRecipe } from "@/app/utils/methods";
+import ClientWhereFindUs from "@/app/components/where-find-us/client.where-find-us";
+import OurProducts from "@/app/components/home/our-products/our-products";
+import Loading from "@/app/components/loading";
+import ClientOurProducts from "@/app/components/home/our-products/client.our-products";
 
 export default function Home() {
   const [productDetails, setProductDetails] = useState({
@@ -119,7 +121,7 @@ export default function Home() {
     }
   }, []);
 
-  return (
+  return didFetch.current ? (
     <>
       <main className={styles.main}>
         <div className={styles.mainSection}>
@@ -183,9 +185,9 @@ export default function Home() {
           </div>
         </div>
       </main>
-      <OurProducts />
+      <ClientOurProducts />
       <div style={{ height: "240px" }}></div>
-      <WhereFindUs title="Distribuidores" />
+      <ClientWhereFindUs title="Distribuidores" />
       <Recipes recipes={productDetails.recipes} />
       <div className={styles.contactWrapper}>
         <div className={styles.textWrapperRelative}>
@@ -255,5 +257,7 @@ export default function Home() {
         </div>
       </div>
     </>
+  ) : (
+    <Loading />
   );
 }

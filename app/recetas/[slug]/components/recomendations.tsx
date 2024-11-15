@@ -31,9 +31,11 @@ export default function Recomendations({
         loop={true}
       >
         {testimonials.map((testimonial: any, index: number) => (
-          <SwiperSlide key={index} className={styles.testimonial}>
-            <h4>{testimonial.title}</h4>
-            <p>{testimonial.description}</p>
+          <SwiperSlide key={index}>
+            <div className={styles.testimonial}>
+              <h4>{testimonial.title}</h4>
+              <p>{testimonial.description}</p>
+            </div>
           </SwiperSlide>
         ))}
       </Swiper>
