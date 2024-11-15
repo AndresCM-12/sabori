@@ -272,49 +272,51 @@ export default function BlogItems() {
       </div>
 
       <div className={styles.blogFeaturedWrapper}>
-        {featuredBlog
-          .find((blog) => blog.title === selectedCategory)
-          ?.items.map((blog, index) =>
-            index % 2 == 0 ? (
-              <div key={index} className={styles.blogCard}>
-                <div className={styles.imageWrapper}>
-                  <img src={blog.image} alt={blog.title} />
-                </div>
-                <div className={styles.text}>
-                  <h5>{blog.title}</h5>
-                  <p>{blog.description}</p>
-                  <div className={styles.iconsWrapper}>
-                    {blog.icons.map((icon, index) => (
-                      <img
-                        key={index}
-                        src={icon}
-                        width={26}
-                        height={37}
-                        alt="Icon"
-                      />
-                    ))}
-                  </div>
-                  <a href={blog.ctaLink}>{blog.ctaText}</a>
-                </div>
+        {(selectedCategory === "Todos los productos"
+          ? featuredBlog.flatMap((blog) => blog.items) // Combina los items de todas las categorías
+          : featuredBlog.find((blog) => blog.title === selectedCategory)
+              ?.items || []
+        ).map((blog, index) =>
+          index % 2 === 0 ? (
+            <div key={index} className={styles.blogCard}>
+              <div className={styles.imageWrapper}>
+                <img src={blog.image} alt={blog.title} />
               </div>
-            ) : (
-              <div key={index} className={styles.blogCardInverted}>
-                <div className={styles.text}>
-                  <h5>{blog.title}</h5>
-                  <p>{blog.description}</p>
-                  <div className={styles.iconsWrapper}>
-                    {blog.icons.map((icon, index) => (
-                      <img key={index} src={icon} alt="Icon" />
-                    ))}
-                  </div>
-                  <a href={blog.ctaLink}>{blog.ctaText}</a>
+              <div className={styles.text}>
+                <h5>{blog.title}</h5>
+                <p>{blog.description}</p>
+                <div className={styles.iconsWrapper}>
+                  {blog.icons.map((icon, iconIndex) => (
+                    <img
+                      key={iconIndex}
+                      src={icon}
+                      width={26}
+                      height={37}
+                      alt="Icon"
+                    />
+                  ))}
                 </div>
-                <div className={styles.imageWrapper}>
-                  <img src={blog.image} alt={blog.title} />
-                </div>
+                <a href={blog.ctaLink}>{blog.ctaText}</a>
               </div>
-            )
-          )}
+            </div>
+          ) : (
+            <div key={index} className={styles.blogCardInverted}>
+              <div className={styles.text}>
+                <h5>{blog.title}</h5>
+                <p>{blog.description}</p>
+                <div className={styles.iconsWrapper}>
+                  {blog.icons.map((icon, iconIndex) => (
+                    <img key={iconIndex} src={icon} alt="Icon" />
+                  ))}
+                </div>
+                <a href={blog.ctaLink}>{blog.ctaText}</a>
+              </div>
+              <div className={styles.imageWrapper}>
+                <img src={blog.image} alt={blog.title} />
+              </div>
+            </div>
+          )
+        )}
       </div>
     </div>
   );

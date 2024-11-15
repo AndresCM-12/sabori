@@ -101,6 +101,9 @@
   background-color: #f5f5f5;
   border-radius: 20px;
 }
+.blogFeaturedWrapper img {
+  filter: brightness(1) !important;
+}
 
 .blogFeaturedWrapper .blogCard .imageWrapper {
   width: 100%;

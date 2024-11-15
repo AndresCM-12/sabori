@@ -10,27 +10,90 @@ import { whereFindUs } from "../utils/constants";
 
 export default function WhereFindUs({ title }: { title: string }) {
   const [stores, setStores] = useState([
-    "https://placehold.co/600x400",
-    "https://placehold.co/600x400",
-    "https://placehold.co/600x400",
-    "https://placehold.co/600x400",
-    "https://placehold.co/600x400",
-    "https://placehold.co/600x400",
-    "https://placehold.co/600x400",
-    "https://placehold.co/600x400",
-    "https://placehold.co/600x400",
-    "https://placehold.co/600x400",
-    "https://placehold.co/600x400",
-    "https://placehold.co/600x400",
-    "https://placehold.co/600x400",
-    "https://placehold.co/600x400",
-    "https://placehold.co/600x400",
-    "https://placehold.co/600x400",
-    "https://placehold.co/600x400",
-    "https://placehold.co/600x400",
-    "https://placehold.co/600x400",
-    "https://placehold.co/600x400",
-    "https://placehold.co/600x400",
+    {
+      link: "https://www.google.com",
+      image: "https://placehold.co/500x500",
+    },
+    {
+      link: "https://www.google.com",
+      image: "https://placehold.co/500x500",
+    },
+    {
+      link: "https://www.google.com",
+      image: "https://placehold.co/500x500",
+    },
+    {
+      link: "https://www.google.com",
+      image: "https://placehold.co/500x500",
+    },
+    {
+      link: "https://www.google.com",
+      image: "https://placehold.co/500x500",
+    },
+    {
+      link: "https://www.google.com",
+      image: "https://placehold.co/500x500",
+    },
+    {
+      link: "https://www.google.com",
+      image: "https://placehold.co/500x500",
+    },
+    {
+      link: "https://www.google.com",
+      image: "https://placehold.co/500x500",
+    },
+    {
+      link: "https://www.google.com",
+      image: "https://placehold.co/500x500",
+    },
+    {
+      link: "https://www.google.com",
+      image: "https://placehold.co/500x500",
+    },
+    {
+      link: "https://www.google.com",
+      image: "https://placehold.co/500x500",
+    },
+    {
+      link: "https://www.google.com",
+      image: "https://placehold.co/500x500",
+    },
+    {
+      link: "https://www.google.com",
+      image: "https://placehold.co/500x500",
+    },
+    {
+      link: "https://www.google.com",
+      image: "https://placehold.co/500x500",
+    },
+    {
+      link: "https://www.google.com",
+      image: "https://placehold.co/500x500",
+    },
+    {
+      link: "https://www.google.com",
+      image: "https://placehold.co/500x500",
+    },
+    {
+      link: "https://www.google.com",
+      image: "https://placehold.co/500x500",
+    },
+    {
+      link: "https://www.google.com",
+      image: "https://placehold.co/500x500",
+    },
+    {
+      link: "https://www.google.com",
+      image: "https://placehold.co/500x500",
+    },
+    {
+      link: "https://www.google.com",
+      image: "https://placehold.co/500x500",
+    },
+    {
+      link: "https://www.google.com",
+      image: "https://placehold.co/500x500",
+    },
   ]);
   const didFetch = React.useRef(false);
   useEffect(() => {
@@ -65,7 +128,12 @@ export default function WhereFindUs({ title }: { title: string }) {
       >
         {stores.map((store, index) => (
           <SwiperSlide key={index} style={{ width: "112px" }}>
-            <img src={store} alt="Ícono de tiendas de donde encontrarnos" />
+            <a href={store.link} target="_blank">
+              <img
+                src={store.image}
+                alt="Ícono de tiendas de donde encontrarnos"
+              />
+            </a>
           </SwiperSlide>
         ))}
       </Swiper>

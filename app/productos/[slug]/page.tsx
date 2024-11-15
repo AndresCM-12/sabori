@@ -11,6 +11,7 @@ import { fetchArrayInProduct, fetchArrayInRecipe } from "@/app/utils/methods";
 export default function Home() {
   const [productDetails, setProductDetails] = useState({
     title: "Pechuga de pavo extrafina",
+    portion: "100g",
     details: [
       {
         icon: fitnessIcon.src,
@@ -132,48 +133,53 @@ export default function Home() {
           <div className={styles.detailsWrapper}>
             <h1>{productDetails.title}</h1>
             <div className={styles.details}>
-              {productDetails.details.map((detail, index) => (
-                <div
-                  key={index + detail.title}
-                  className={styles.detailWrapper}
-                >
-                  <img
-                    height={46}
-                    width={40}
-                    src={detail.icon}
-                    alt={detail.title}
-                  />
-                  <h4>{detail.title}</h4>
-                  <p>{detail.details}</p>
-                </div>
-              ))}
+              {productDetails?.details &&
+                productDetails.details.map((detail, index) => (
+                  <div
+                    key={index + detail.title}
+                    className={styles.detailWrapper}
+                  >
+                    <img
+                      height={46}
+                      width={40}
+                      src={detail.icon}
+                      alt={detail.title}
+                    />
+                    <h4>{detail.title}</h4>
+                    <p>{detail.details}</p>
+                  </div>
+                ))}
             </div>
             <p>{productDetails.detailsDescription}</p>
           </div>
         </div>
 
         <div className={styles.nutrients}>
-          <h2>Declaración nutrimental | Tamaño de la porción de 100g</h2>
+          <h2>
+            Declaración nutrimental | Tamaño de la porción de{" "}
+            {productDetails["portion"]}
+          </h2>
           <div className={styles.nutrientsWrapper}>
-            <div className={styles.row}>
+            {/* <div className={styles.row}>
               <p>Contenido energético</p>
               <p>Contenido energético</p>
               <p>Contenido energético</p>
               <p> </p>
             </div>
-            <div className={styles.separator}></div>
+            <div className={styles.separator}></div> */}
 
-            {productDetails.nutritionFacts.map((fact, index) => (
-              <div className={styles.rowWrapper} key={index}>
-                <div key={index} className={styles.row}>
-                  <p>{fact.name}</p>
-                  <p>{fact.value}</p>
-                  <p>{fact.unit}</p>
-                  <p>{fact.added}</p>
+            {productDetails?.nutritionFacts &&
+              productDetails?.nutritionFacts.map((fact, index) => (
+                <div className={styles.rowWrapper} key={index}>
+                  <div key={index} className={styles.row}>
+                    <p>{fact.name}</p>
+                    <p>{fact.value}</p>
+                    <p>{fact.unit}</p>
+                    <p>{fact.added}</p>
+                  </div>
+                  <div className={styles.separator}></div>
                 </div>
-                <div className={styles.separator}></div>
-              </div>
-            ))}
+              ))}
           </div>
         </div>
       </main>
