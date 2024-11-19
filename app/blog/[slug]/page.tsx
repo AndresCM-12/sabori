@@ -37,11 +37,45 @@ export default function Home() {
   return didFetch.current ? (
     <>
       <main className={styles.main}>
-        <div className={styles.imageWrapper}>
+        <div
+          style={{
+            position: "relative",
+            width: "100%",
+          }}
+          className={styles.imageWrapper}
+        >
           <div>
             <h1>{blogDetails.title}</h1>
           </div>
-          <img src={blogDetails.image} alt="Sabori blog imagen de portada" />
+          <div
+            style={{
+              position: "absolute",
+              top: "20px",
+              right: "30px",
+              width: "60px",
+              height: "60px",
+              zIndex: 2,
+            }}
+          >
+            <img
+              style={{
+                width: "100%",
+                height: "100%",
+                position: "static",
+                filter: "brightness(1)",
+                objectFit: "contain",
+              }}
+              src={blogDetails.icon}
+              alt="Icono de blog"
+            />
+          </div>
+          <img
+            src={blogDetails.image}
+            style={{
+              filter: "brightness(0.6)",
+            }}
+            alt="Sabori blog imagen de portada"
+          />
         </div>
         <div className={styles.infoWrapper}>
           <h2>{blogDetails.subTitle}</h2>

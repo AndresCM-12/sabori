@@ -3,7 +3,11 @@ import { useLayoutEffect, useState } from "react";
 import styles from "../css/page.module.css";
 import mobileIconMenu from "../../../public/images/mobile-icon-menu.svg";
 
-export default function BlogItemsClientWrapper({ featuredBlog }: { featuredBlog: any }) {
+export default function BlogItemsClientWrapper({
+  featuredBlog,
+}: {
+  featuredBlog: any;
+}) {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
@@ -37,7 +41,7 @@ export default function BlogItemsClientWrapper({ featuredBlog }: { featuredBlog:
 
       <div
         style={{
-          height: showMobileMenu ? "118px" : "0px",
+          height: showMobileMenu ? `${(featuredBlog.length -1) * 38}px` : "0px",
           padding: showMobileMenu ? "16px" : "0",
         }}
         className={styles.floatingMobileMenu}

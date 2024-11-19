@@ -31,9 +31,15 @@ export default function Header() {
         <div className={styles.rightContainer}>
           <a href="/contacto">Contáctanos</a>
           <div className={styles.socialNetworks}>
-            <a href="">Ig</a>
-            <a href="">Fb</a>
-            <a href="">Yt</a>
+            <a href="https://www.instagram.com/sabori_mx/" target="_blank">
+              Ig
+            </a>
+            <a href="https://www.facebook.com/SoySabori" target="_blank">
+              Fb
+            </a>
+            <a href="https://www.youtube.com/@sabori2496" target="_blank">
+              Yt
+            </a>
           </div>
         </div>
       </div>

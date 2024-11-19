@@ -13,6 +13,9 @@ export async function fetchArrayInPost(postName: string) {
       headers: {
         "Content-Type": "application/json",
       },
+      next: {
+        revalidate: 3600,
+      },
       body: JSON.stringify({
         query: getSectionsGraphqlQuery(postName),
       }),
@@ -39,6 +42,9 @@ export async function fetchArrayInProduct(postName: string) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+      },
+      next: {
+        revalidate: 3600,
       },
       body: JSON.stringify({
         query: getProductsGraphqlQuery(postName),
@@ -67,6 +73,9 @@ export async function fetchArrayInRecipe(postName: string) {
       headers: {
         "Content-Type": "application/json",
       },
+      next: {
+        revalidate: 3600,
+      },
       body: JSON.stringify({
         query: getRecipesGraphqlQuery(postName),
       }),
@@ -93,6 +102,9 @@ export async function fetchArrayInBlog(postName: string) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+      },
+      next: {
+        revalidate: 3600,
       },
       body: JSON.stringify({
         query: getBlogsGraphqlQuery(postName),

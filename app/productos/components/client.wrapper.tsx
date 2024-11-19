@@ -41,7 +41,9 @@ export default function BlogItemsClientWrapper({
 
       <div
         style={{
-          height: showMobileMenu ? "218px" : "0px",
+          height: showMobileMenu
+            ? `${(featuredBlog.length - 1) * 38}px`
+            : "0px",
           padding: showMobileMenu ? "16px" : "0",
         }}
         className={styles.floatingMobileMenu}

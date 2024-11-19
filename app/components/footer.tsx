@@ -22,9 +22,15 @@ export default function CustomFooter() {
         <p>Atención al cliente:</p>
         <a href="mailto:hola@sabori.com.mx">hola@sabori.com.mx</a>
         <nav>
-          <a href="">Ig</a>
-          <a href="">Fb</a>
-          <a href="">Yb</a>
+          <a href="https://www.instagram.com/sabori_mx/" target="_blank">
+            Ig
+          </a>
+          <a href="https://www.facebook.com/SoySabori" target="_blank">
+            Fb
+          </a>
+          <a href="https://www.youtube.com/@sabori2496" target="_blank">
+            Yt
+          </a>
         </nav>
         <div>
           <a href="aviso-de-privacidad">Aviso de privacidad</a>
