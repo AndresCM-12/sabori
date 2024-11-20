@@ -9,7 +9,7 @@ import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import redRightArrow from "../../../../public/images/red-right-arrow.svg";
 import { fetchArrayInPost } from "@/app/utils/methods";
-import { featuredRecipes } from "@/app/utils/constants";
+import { allRecipes } from "@/app/utils/constants";
 
 export default function Recipes({ recipes }: any) {
   const didFetch = useRef(false);
@@ -64,8 +64,11 @@ export default function Recipes({ recipes }: any) {
 
   useEffect(() => {
     if (!recipes && didFetch.current === false) {
-      fetchArrayInPost(featuredRecipes).then((data) => {
-        setRecipes(data);
+      fetchArrayInPost(allRecipes).then((data) => {
+        const flatenAndFilteredData = data
+          .flatMap((category: any) => category.items)
+          .filter((recipe: any) => recipe.viewInHome);
+        setRecipes(flatenAndFilteredData);
       });
       didFetch.current = true;
     }

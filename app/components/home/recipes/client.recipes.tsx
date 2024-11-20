@@ -8,15 +8,18 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Pagination } from "swiper/modules";
 import { fetchArrayInPost } from "@/app/utils/methods";
-import { featuredRecipes } from "@/app/utils/constants";
+import { allRecipes } from "@/app/utils/constants";
 
 export default function ClientRecipes() {
   const [recipes, setRecipes] = React.useState([] as any);
   const didFetch = React.useRef(false);
   React.useEffect(() => {
     if (didFetch.current === false) {
-      fetchArrayInPost(featuredRecipes).then((data) => {
-        setRecipes(data);
+      fetchArrayInPost(allRecipes).then((data) => {
+        const flatenAndFilteredData = data
+          .flatMap((category: any) => category.items)
+          .filter((recipe: any) => recipe.viewInHome);
+        setRecipes(flatenAndFilteredData);
       });
       didFetch.current = true;
     }

@@ -5,7 +5,7 @@ import fitnessIcon from "../../../../public/images/fitness-icon.svg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { fetchArrayInPost } from "@/app/utils/methods";
-import { featuredBlog } from "@/app/utils/constants";
+import { allBlogs } from "@/app/utils/constants";
 
 export default function FeaturedBlog() {
   const [blogs, setBlogs] = useState([
@@ -69,8 +69,12 @@ export default function FeaturedBlog() {
   const didFetch = useRef(false);
   useEffect(() => {
     if (didFetch.current === false) {
-      fetchArrayInPost(featuredBlog).then((data) => {
-        setBlogs(data);
+      fetchArrayInPost(allBlogs).then((data) => {
+        const flatenAndFilteredData = data
+          .flatMap((category: any) => category.items)
+          .filter((recipe: any) => recipe.viewInHome);
+
+        setBlogs(flatenAndFilteredData);
       });
       didFetch.current = true;
     }

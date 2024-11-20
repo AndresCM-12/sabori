@@ -84,11 +84,11 @@ export default function Home() {
           </div>
           <div className={styles.textWrapper}>
             <h2>Ingredientes:</h2>
-            {recipeDetails.ingredients.map((ingredient, index) => (
+            {recipeDetails.ingredients?.map((ingredient, index) => (
               <p key={index}>› {ingredient}</p>
             ))}
             <h2>Instrucciones:</h2>
-            {recipeDetails.instructions.map((instruction, index) => (
+            {recipeDetails.instructions?.map((instruction, index) => (
               <p key={index}>
                 {index + 1}. {instruction}
               </p>
@@ -112,7 +112,7 @@ export default function Home() {
           ></iframe>
         </div>
       </section>
-      {recipeDetails.testimonials.length > 0 && (
+      {recipeDetails.testimonials?.length > 0 && (
         <Recomendations testimonials={recipeDetails.testimonials} />
       )}
       <Recipes recipes={recipeDetails.recipes} />
