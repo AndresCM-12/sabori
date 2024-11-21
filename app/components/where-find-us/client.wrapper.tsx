@@ -2,9 +2,8 @@
 import "swiper/css";
 
 import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
 import styles from "../css/where-find-us.module.css";
-import { Autoplay } from "swiper/modules";
+import bannerStyles from "./where-find-us.module.css";
 
 export default function WhereFindUsClientWrapper({
   title,
@@ -16,35 +15,24 @@ export default function WhereFindUsClientWrapper({
   return (
     <section className={styles.whereFindUsWrapper}>
       <h6>{title}</h6>
-      <Swiper
-        id="whereFindUsSwiper"
-        slidesPerView={"auto"}
-        spaceBetween={40}
-        loop={true}
-        modules={[Autoplay]}
-        autoplay={{
-          delay: 0,
-          pauseOnMouseEnter: false,
-          disableOnInteraction: false,
-          stopOnLastSlide: false,
-          waitForTransition: true,
-        }}
-        speed={3200}
-        navigation={false}
-        centeredSlides={true}
-        noSwipingClass="swiper-slide"
-      >
-        {stores.map((store, index) => (
-          <SwiperSlide key={index} style={{ width: "112px" }}>
-            <a href={store.link} target="_blank">
-              <img
-                src={store.image}
-                alt="Ícono de tiendas de donde encontrarnos"
-              />
-            </a>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      <div className={bannerStyles.inner}>
+        <div className={bannerStyles.wrapper}>
+          <section style={{ "--speed": `${90500}ms` } as React.CSSProperties}>
+            {stores.map(({ image, index }) => (
+              <div className={bannerStyles.image} key={index + Math.random()}>
+                <img src={image} alt={index} />
+              </div>
+            ))}
+          </section>
+          <section style={{ "--speed": `${90500}ms` } as React.CSSProperties}>
+            {stores.map(({ image, index }) => (
+              <div className={bannerStyles.image} key={index + Math.random()}>
+                <img src={image} alt={index} />
+              </div>
+            ))}
+          </section>
+        </div>
+      </div>
     </section>
   );
 }

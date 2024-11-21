@@ -151,13 +151,24 @@
 .blogCard .text {
   height: fit-content;
   position: relative;
-  height: 38px;
+  height: fit-content;
   overflow: hidden;
   transition: all 0.5s ease-in-out;
 }
+.blogCard .text p {
+  display: none;
+}
 
-.blogCard:hover .text {
-  height: 260px;
+.blogCard .text a {
+  display: none !important;
+}
+
+.blogCard:hover .text p {
+  display: block !important;
+}
+
+.blogCard:hover .text a {
+  display: block !important;
 }
 
 .blogCard .text a {
