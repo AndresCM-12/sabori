@@ -12,6 +12,7 @@ export default function Home() {
   const [recipeDetails, setRecipeDetails] = useState({
     title: "Brochette con gravy",
     image: "",
+    additionalText: "TEST",
     thumbnail:
       "https://sabori.com.mx/wp-content/themes/sabori/img/productos/salchicha-alnatural.jpg",
     recipes: [],
@@ -83,6 +84,9 @@ export default function Home() {
             <h1>{recipeDetails.title}</h1>
           </div>
           <div className={styles.textWrapper}>
+            {recipeDetails.additionalText && (
+              <h2>{recipeDetails.additionalText}</h2>
+            )}
             <h2>Ingredientes:</h2>
             {recipeDetails.ingredients?.map((ingredient, index) => (
               <p key={index}>› {ingredient}</p>
@@ -100,17 +104,38 @@ export default function Home() {
 
           <img src={recipeDetails.image} alt="Cover " />
         </div>
-        <div className={styles.videoWrapper}>
-          <iframe
-            width="560"
-            height="315"
-            src={recipeDetails.video}
-            title="Reproductor de video de YouTube para receta"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerPolicy="strict-origin-when-cross-origin"
-            allowFullScreen
-          ></iframe>
+
+        <div>
+          <div className={styles.mobileTextWrapper}>
+            {recipeDetails.additionalText && (
+              <h2>{recipeDetails.additionalText}</h2>
+            )}
+            <h2>Ingredientes:</h2>
+            {recipeDetails.ingredients?.map((ingredient, index) => (
+              <p key={index}>› {ingredient}</p>
+            ))}
+            <h2>Instrucciones:</h2>
+            {recipeDetails.instructions?.map((instruction, index) => (
+              <p key={index}>
+                {index + 1}. {instruction}
+              </p>
+            ))}
+          </div>
         </div>
+
+        {recipeDetails.video && (
+          <div className={styles.videoWrapper}>
+            <iframe
+              width="560"
+              height="315"
+              src={recipeDetails.video}
+              title="Reproductor de video de YouTube para receta"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            ></iframe>
+          </div>
+        )}
       </section>
       {recipeDetails.testimonials?.length > 0 && (
         <Recomendations testimonials={recipeDetails.testimonials} />
