@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { fetchArrayInPost, fetchArrayInRecipe } from "@/app/utils/methods";
 import Loading from "@/app/components/loading";
 import WhereFindUsClientWrapper from "@/app/components/where-find-us/client.wrapper";
-import { whereFindUs } from "@/app/utils/constants";
+import { homeInfo, whereFindUs } from "@/app/utils/constants";
 
 export default function Home() {
   const [recipeDetails, setRecipeDetails] = useState({
@@ -56,7 +56,7 @@ export default function Home() {
     ],
   });
   const [stores, setStores] = useState([]);
-
+  const [homeInfoData, setHomeInfoData] = useState([]);
   const didFetch = useRef(false);
   useEffect(() => {
     const blogId = window.location.pathname.split("/")[2];
@@ -68,6 +68,11 @@ export default function Home() {
         .then(() => {
           fetchArrayInPost(whereFindUs).then((data) => {
             setStores(data);
+          });
+        })
+        .then(() => {
+          fetchArrayInPost(homeInfo).then((data) => {
+            setHomeInfoData(data.dondeEncontrarnos);
           });
         })
         .then(() => {
@@ -147,7 +152,11 @@ export default function Home() {
         }}
       ></div>
       {stores.length > 0 && (
-        <WhereFindUsClientWrapper title="Donde comprar" stores={stores} />
+        <WhereFindUsClientWrapper
+          title="Donde comprar"
+          stores={stores}
+          homeInfo={homeInfoData}
+        />
       )}
     </>
   ) : (
