@@ -3,16 +3,18 @@
 import React from "react";
 import styles from "../../css/home/featured-blog.module.css";
 
-export default function FeaturedBlogClientWrapper({ blogs }: { blogs: any }) {
+export default function FeaturedBlogClientWrapper({
+  blogs,
+  homeInfo,
+}: {
+  blogs: any;
+  homeInfo: any;
+}) {
   return (
     <section className={styles.blogWrapper}>
       <div className={styles.textWrapper}>
-        <h5>Blog</h5>
-        <p>
-          "But I must explain to you how all this mistaken idea of denouncing
-          pleasure and praising pain was born and I will give you a complete
-          account of the system
-        </p>
+        <h5>{homeInfo.title}</h5>
+        <p>{homeInfo.description}</p>
         <a href="/blog">Ver todo</a>
       </div>
       <div className={styles.blogFeaturedWrapper}>

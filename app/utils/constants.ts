@@ -1,6 +1,10 @@
 export const URL = "https://wp.sabori.com.mx/graphql";
 
 export const featuredHome = "featured-home";
+export const homeInfo = "home-info";
+export const blogInfo = "blog-info";
+export const nosotrosInfo = "nosotros-info";
+export const calculadoraInfo = "calculadora-info";
 export const featuredProducts = "featured-products";
 export const ourValues = "our-values";
 export const whereFindUs = "where-find-us";

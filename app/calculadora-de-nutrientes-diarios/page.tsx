@@ -1,20 +1,18 @@
 import styles from "./css/page.module.css";
-import contactoCover from "../../public/images/contacto-cover.webp";
 import Calculator from "./components/calculator";
+import { fetchArrayInPost } from "../utils/methods";
+import { calculadoraInfo } from "../utils/constants";
 
-export default function Home() {
+export default async function Home() {
+  const calculadoraInfoData = await fetchArrayInPost(calculadoraInfo);
+
   return (
     <main className={styles.main}>
       <div className={styles.imageWrapper}>
-        <img src={contactoCover.src} alt="Contacto cover" />
+        <img src={calculadoraInfoData.bgImage} alt="Contacto cover" />
         <div>
-          <h1>Calculadora de nutrientes diarios</h1>
-          <p>
-            laborious physical exercise, except to obtain some advantage from
-            it? But who has any right to find fault with a man who chooses to
-            enjoy a pleasure that has no annoying consequences, or one who
-            avoids a pain that produces no resultant pleasure?"
-          </p>
+          <h1>{calculadoraInfoData.title}</h1>
+          <p>{calculadoraInfoData.description}</p>
         </div>
       </div>
 

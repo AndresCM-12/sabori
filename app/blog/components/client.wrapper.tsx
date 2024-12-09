@@ -5,8 +5,10 @@ import mobileIconMenu from "../../../public/images/mobile-icon-menu.svg";
 
 export default function BlogItemsClientWrapper({
   featuredBlog,
+  blogInfo,
 }: {
   featuredBlog: any;
+  blogInfo: any;
 }) {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [showMobileMenu, setShowMobileMenu] = useState(false);
@@ -26,66 +28,78 @@ export default function BlogItemsClientWrapper({
   }, []);
 
   return (
-    <div className={styles.wrapper}>
-      <div
-        className={styles.menuMobile}
-        style={{
-          backgroundColor: showMobileMenu ? "#ff9494" : "transparent",
-          borderRadius: showMobileMenu ? "8px" : "0px",
-        }}
-        onClick={() => setShowMobileMenu(!showMobileMenu)}
-      >
-        <p>{selectedCategory}</p>
-        <img src={mobileIconMenu.src} alt="Burguer menu" />
+    <>
+      <div className={styles.imageWrapper}>
+        <div>
+          <h1>{blogInfo.title}</h1>
+        </div>
+        <img src={blogInfo.bgImage} alt="Sabori blog imagen de portada" />
       </div>
+      <div className={styles.wrapper}>
+        <div
+          className={styles.menuMobile}
+          style={{
+            backgroundColor: showMobileMenu ? "#ff9494" : "transparent",
+            borderRadius: showMobileMenu ? "8px" : "0px",
+          }}
+          onClick={() => setShowMobileMenu(!showMobileMenu)}
+        >
+          <p>{selectedCategory}</p>
+          <img src={mobileIconMenu.src} alt="Burguer menu" />
+        </div>
 
-      <div
-        style={{
-          height: showMobileMenu ? `${(featuredBlog.length -1) * 38}px` : "0px",
-          padding: showMobileMenu ? "16px" : "0",
-        }}
-        className={styles.floatingMobileMenu}
-      >
-        {featuredBlog
-          .filter((category: any) => category.title !== selectedCategory)
-          .map((category: any, index: number) => (
+        <div
+          style={{
+            height: showMobileMenu
+              ? `${(featuredBlog.length - 1) * 38}px`
+              : "0px",
+            padding: showMobileMenu ? "16px" : "0",
+          }}
+          className={styles.floatingMobileMenu}
+        >
+          {featuredBlog
+            .filter((category: any) => category.title !== selectedCategory)
+            .map((category: any, index: number) => (
+              <p
+                key={index}
+                style={{
+                  display: showMobileMenu ? "flex" : "none",
+                }}
+                onClick={() => {
+                  setSelectedCategory(decodeURI(category.title));
+                  window.location.hash = category.title;
+                  setShowMobileMenu(false);
+                }}
+              >
+                {category.title}
+              </p>
+            ))}
+        </div>
+
+        <div className={styles.menu}>
+          {featuredBlog.map((category: any, index: number) => (
             <p
               key={index}
               style={{
-                display: showMobileMenu ? "flex" : "none",
+                color:
+                  selectedCategory === category.title ? "#d91e3e" : "black",
               }}
               onClick={() => {
                 setSelectedCategory(decodeURI(category.title));
                 window.location.hash = category.title;
-                setShowMobileMenu(false);
               }}
             >
               {category.title}
             </p>
           ))}
-      </div>
+        </div>
 
-      <div className={styles.menu}>
-        {featuredBlog.map((category: any, index: number) => (
-          <p
-            key={index}
-            style={{
-              color: selectedCategory === category.title ? "#d91e3e" : "black",
-            }}
-            onClick={() => {
-              setSelectedCategory(decodeURI(category.title));
-              window.location.hash = category.title;
-            }}
-          >
-            {category.title}
-          </p>
-        ))}
-      </div>
-
-      <div className={styles.blogFeaturedWrapper}>
-        {featuredBlog
-          .find((blog: any) => blog.title === selectedCategory)
-          ?.items.map((blog: any, index: number) => (
+        <div className={styles.blogFeaturedWrapper}>
+          {(selectedCategory === "Todos los productos"
+            ? featuredBlog.flatMap((blog: any) => blog.items) // Combina los items de todas las categorías
+            : featuredBlog.find((blog: any) => blog.title === selectedCategory)
+                ?.items || []
+          ).map((blog: any, index: number) => (
             <div key={index} className={styles.blogCard}>
               <div className={styles.headerWrapper}>
                 <div>
@@ -102,7 +116,8 @@ export default function BlogItemsClientWrapper({
               </div>
             </div>
           ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }

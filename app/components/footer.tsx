@@ -42,8 +42,7 @@ export default function CustomFooter() {
       <div className={styles.newsLetterContainer}>
         <h6>Conoce más detalles de como cuidarte mejor</h6>
         <p>
-          "But I must explain to you how all this mistaken ideand I will give
-          you a complete account of the system
+        Porque cuidar de ti nunca fue tan fácil. Suscríbete para recibir más detalles y tips exclusivos
         </p>
         <form action="POST">
           <input type="email" placeholder="Correo electronico" />

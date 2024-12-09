@@ -10,16 +10,23 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-coverflow";
 import { fetchArrayInPost } from "@/app/utils/methods";
-import { featuredProducts } from "@/app/utils/constants";
+import { featuredProducts, homeInfo } from "@/app/utils/constants";
 
 export default function ClientOurProducts({}) {
   const [products, setStores] = useState([] as any);
+  const [homeInfoData, setHomeInfo] = useState({} as any);
   const didFetch = useRef(false);
   useEffect(() => {
     if (didFetch.current === false) {
-      fetchArrayInPost(featuredProducts).then((data) => {
-        setStores(data);
-      });
+      fetchArrayInPost(featuredProducts)
+        .then((data) => {
+          setStores(data);
+        })
+        .then(() => {
+          fetchArrayInPost(homeInfo).then((data) => {
+            setHomeInfo(data.ourProducts);
+          });
+        });
       didFetch.current = true;
     }
   }, []);
@@ -27,13 +34,16 @@ export default function ClientOurProducts({}) {
   return (
     <section>
       <div className={styles.textWrapper}>
-        <h2>Nuestros productos</h2>
-        <p>
-          "But I must explain to you how all this mistaken idea of denouncing
-          pleasure and praising pain was born and I will give you a complete
-          account of the system
-        </p>
-        <a href="/productos">Ver detalles</a>
+        <h2>{homeInfoData.title}</h2>
+        <p>{homeInfoData.description}</p>
+        <a
+          style={{
+            backgroundColor: "#d91e3e",
+          }}
+          href="/productos"
+        >
+          Ver detalles
+        </a>
       </div>
       <div className={styles.swiperWrapper}>
         {didFetch.current && (

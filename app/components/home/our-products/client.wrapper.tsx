@@ -12,19 +12,20 @@ import "swiper/css/effect-coverflow";
 
 export default function OurProductsClientWrapper({
   products,
+  homeInfo,
 }: {
   products: any[];
+  homeInfo: any;
 }) {
+  console.log(homeInfo);
   return (
     <section>
       <div className={styles.textWrapper}>
-        <h2>Nuestros productos</h2>
-        <p>
-          "But I must explain to you how all this mistaken idea of denouncing
-          pleasure and praising pain was born and I will give you a complete
-          account of the system
-        </p>
-        <a href="/productos">Ver detalles</a>
+        <h2>{homeInfo?.title}</h2>
+        <p>{homeInfo?.description}</p>
+        <a style={{
+          backgroundColor: "#d91e3e",
+        }} href="/productos">Ver detalles</a>
       </div>
       <div className={styles.swiperWrapper}>
         <Swiper

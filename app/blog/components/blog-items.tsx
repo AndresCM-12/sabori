@@ -1,9 +1,15 @@
 import { fetchArrayInPost } from "@/app/utils/methods";
-import { allBlogs } from "@/app/utils/constants";
+import { allBlogs, blogInfo } from "@/app/utils/constants";
 import BlogItemsClientWrapper from "./client.wrapper";
 
 export default async function BlogItems() {
   const featuredBlog = await fetchArrayInPost(allBlogs);
-
-  return <BlogItemsClientWrapper featuredBlog={featuredBlog} />;
+  const blogInfoData = await fetchArrayInPost(blogInfo);
+  
+  return (
+    <BlogItemsClientWrapper
+      featuredBlog={featuredBlog}
+      blogInfo={blogInfoData}
+    />
+  );
 }

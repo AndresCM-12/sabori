@@ -2,8 +2,6 @@
 import React, { useEffect } from "react";
 import styles from "./css/calculator.module.css";
 import FeaturedBlog from "@/app/blog/[slug]/components/featured-blog";
-import Recipes from "@/app/components/home/recipes/recipes";
-import OurProducts from "./our-products";
 import stepSixCoverImage from "../../../public/images/stepsix-cover.webp";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -121,14 +119,16 @@ export default function Calculator() {
       {currentStep >= 4 ? (
         <div>
           <div className={styles.featuredBlogTextWrapper}>
-            <h5>Artículos destacados</h5>
+            <h5>Consejos para lograr tus objetivos</h5>
             <p>
-              laborious physical exercise, except to obtain some advantage from
-              it? But who has any right to find fault with a man who chooses to
-              enjoy a pleasure that has no annoying consequences, or one who
-              avoids a pain that produces no resultant pleasure?"
+              Encuentra artículos prácticos y completos para alcanzar tus
+              objetivos nutrimentales, mejorar tu estilo de vida y establecer
+              hábitos saludables. Desde consejos sobre nutrición balanceada
+              hasta estrategias para incorporar ejercicio y autocuidado, te
+              ayudamos a crear un enfoque integral para lograr un bienestar
+              holístico, cuidando tanto tu cuerpo como tu mente.
             </p>
-            <a href="/blog">ver todo</a>
+            <a href="/blog">Conocer más</a>
           </div>
           <FeaturedBlog />
           <ClientRecipes />
@@ -159,25 +159,25 @@ function StepOne({
     {
       title: "Bajar de peso",
       description:
-        "laborious physical exercise, except to obtain joy a pleasure that has no annoying consequences",
+        "Reducir grasa corporal a través de un déficit calórico controlado y saludable.",
       value: 0.75,
     },
     {
       title: "Mantener peso",
       description:
-        "laborious physical exercise, except to obtain joy a pleasure that has no annoying consequences",
+        "Mantener tu peso actual equilibrando tu consumo nutricional",
       value: 0.3,
     },
     {
       title: "Aumentar masa muscular",
       description:
-        "laborious physical exercise, except to obtain joy a pleasure that has no annoying consequences",
+        "Incrementar tus musculos mediante un balance nutricional alto en proteína y ejercicio de fuerza",
       value: 0.36,
     },
     {
       title: "Tonificar",
       description:
-        "laborious physical exercise, except to obtain joy a pleasure that has no annoying consequences",
+        "Mejorar la firmeza y definición muscular sin necesariamente aumentar el tamaño de los músculos.",
       value: 0.34,
     },
   ];
@@ -341,7 +341,7 @@ function StepTwo({
             />
           </div>
           <div className={styles.input}>
-            <h4>Altura</h4>
+            <h4>Altura (cm)</h4>
             <input
               value={options.height || ""}
               type="number"
@@ -354,7 +354,7 @@ function StepTwo({
             ></input>
           </div>
           <div className={styles.input}>
-            <h4>Peso</h4>
+            <h4>Peso (Kg)</h4>
             <input
               value={options.weight || ""}
               type="number"
@@ -416,35 +416,35 @@ function StepThree({
     {
       title: "Sedentario",
       description:
-        "No haces ejercicio, trabajas en una oficina o estudias y no haces ejercicio",
+        "Pocas actividades en tu día, mayormente sentado o descansando y no haces ejercicio semanal",
       data: [1.15],
       options: ["No haces ejercicio"],
     },
     {
       title: "Ligero",
       description:
-        "laborious physical exercise, except to obtain joy a pleasure that has no annoying consequences",
+        "Actividades diarias suaves, como caminar o tareas domésticas ligeras, realizas 1 o 2 días de ejercicio por semana.",
       data: [1.2, 1.35],
       options: ["40-60 min intenso", "90-120 min ligero"],
     },
     {
       title: "Moderado",
       description:
-        "laborious physical exercise, except to obtain joy a pleasure that has no annoying consequences",
+        "Actividad diaria regular, como trabajar de pie o caminar por tiempo prolongado; haces 3 a 4 días de ejercicio moderado.",
       data: [1.4, 1.55],
       options: ["60-90 min intenso", "60-90 min ligero"],
     },
     {
       title: "Activo",
       description:
-        "laborious physical exercise, except to obtain joy a pleasure that has no annoying consequences",
+        "Muchas actividades diarias, como caminar largas distancias, cargar objetos; entrenas 4-5 días a la semana.",
       data: [1.6, 1.75],
       options: ["30-45 min intenso", "60-90 min ligero"],
     },
     {
       title: "Muy activo",
       description:
-        "laborious physical exercise, except to obtain joy a pleasure that has no annoying consequences",
+        "Muchas actividades diarias o trabajo físico constante, entrenas 6 a 7 días de ejercicio intenso o prolongado.",
       data: [1.8, 1.95],
       options: ["90 min o más o intenso", "180 min o más ligero"],
     },
@@ -640,10 +640,9 @@ function StepFive({
           </button>
         </form>
         <p className={styles.stepFive}>
-          laborious physical exercise, except to obtain some advantage from it?
-          But who has any right to find fault with a man who chooses to enjoy a
-          pleasure that has no annoying consequences, or one who avoids a pain
-          that produces no resultant pleasure?"
+          Nuestro equipo experto en bienestar y nutrición ha creado esta
+          calculadora de nutrientes diarios que te ayudará a conocer lo
+          necesario en tu dieta para lograr tus objetivos de salud.
         </p>
       </div>
     </div>
@@ -669,21 +668,20 @@ function StepSix({
 
       <div className={styles.body}>
         <h4 className={styles.stepSix}>
-          Revisa tu correo para leer a detalle tus resultados
+          ¡Estás un paso más cerca de lograr tus metas!
         </h4>
 
         <p className={styles.stepSix}>
-          laborious physical exercise, except to obtain some advantage from it?
-          But who has any right to find fault with a man who chooses to enjoy a
-          pleasure that has no annoying consequences, or one who avoids a pain
-          that produces no resultant pleasure?"laborious physical exercise,
-          except to obtain some advantage from it? But who has any right to find
-          fault with a man who chooses to enjoy a pleasure that has no annoying
-          consequences, or one who avoids a pain that produces no resultant
-          pleasure?"
+          ¡Estos resultados son la base para comenzar a transformar tus hábitos
+          y alcanzar tus objetivos. Ya sea que busques perder peso, ganar masa
+          muscular, tonificar o mantener tu bienestar, este es el inicio de tu
+          viaje hacia una vida más saludable y activa. Recuerda que cada pequeño
+          esfuerzo suma, y con la constancia, disciplina y una alimentación
+          balanceada, lograrás los resultados que deseas. ¡Ahora es el momento
+          de ponerte en acción y llevar tu bienestar al siguiente nivel!
         </p>
 
-        <span className={styles.stepSix}>#sabesqueteestascuidadndo</span>
+        <span className={styles.stepSix}>#sabesqueteestascuidando</span>
       </div>
     </div>
   );
@@ -780,30 +778,30 @@ function Results({
             <h4>Estos son los resultados de tu evaluación nutrimental</h4>
             <div className={styles.dataWrapper}>
               <p>
-                Tasa de metabolismo basal: <span>{results.bmr}</span>
+                Tasa de metabolismo basal: <span>{results.bmr} (kcal)</span>
               </p>
               <p>
-                Índice de masa corporal: <span>{results.imc}</span>
+                Índice de masa corporal: <span>{results.imc} (IMC)</span>
               </p>
               <p>
                 Objetivos de consumo calórico por día:{" "}
-                <span>{results.tdee}</span>
+                <span>{results.tdee} (Kcal)</span>
               </p>
               <p>
-                Grasas: <span>{results.fats}</span>
+                Grasas: <span>{results.fats} (g)</span>
               </p>
               <p>
-                Proteínas: <span>{results.proteins}</span>
+                Proteínas: <span>{results.proteins} (g)</span>
               </p>
               <p>
-                Carbohidratos: <span>{results.carbs}</span>
+                Carbohidratos: <span>{results.carbs} (g)</span>
               </p>
             </div>
           </div>
           <div>
             <h3>
-              Revisa tu correo para descubrir más detalles de cómo llevar a cabo
-              tu plan de alimentación
+              Tus resultados son el reflejo de tu esfuerzo. ¡Cada elección
+              saludable te acerca más a tus metas!"
             </h3>
             <span>Si no ves tu correo revisa tu bandeja de spam*</span>
           </div>
@@ -815,61 +813,55 @@ function Results({
         <h4>Conoce más sobre el significado de cada resultado que recibiste</h4>
         <Swiper spaceBetween={20} slidesPerView={"auto"}>
           <SwiperSlide className={styles.slide}>
-            <h6>Tasa de metabolismo basal</h6>
+            <h6>Tasa de Metabolismo Basal (TMB)</h6>
             <p>
-              laborious physical exercise, except to obtain some who avoids a
-              pain that produces no resultant pleasure?"laborious physical
-              exercise, except to obtain some advantage from it? But who has any
-              right to find fault with a man who chooses to enjoy a pleasure
-              that has no annoying consequences, or one who avoids a pain that
-              produces no resultant pleasure?"
+              Cantidad de calorías que tu cuerpo necesita para realizar
+              funciones básicas en reposo, como respirar o mantener el ritmo
+              cardíaco.
             </p>
           </SwiperSlide>
           <SwiperSlide className={styles.slide}>
-            <h6>Índice de masa corporal</h6>
+            <h6>Índice de Masa Corporal (IMC)</h6>
             <p>
-              laborious physical exercise, except to obtain some who avoids a
-              pain that produces no resultant pleasure?"laborious physical
-              exercise, except to obtain some advantage from it? But who has any
-              right to find fault with a man who chooses to enjoy a pleasure
-              that has no annoying consequences, or one who avoids a pain that
-              produces no resultant pleasure?"
+              Evalúa tu peso en relación con tu altura para determinar si tienes
+              un peso saludable, bajo, sobrepeso o eres obeso. Los rangos
+              generales son:
+              <br /> Menos de 18.5: Bajo peso.
+              <br /> 18.5 - 24.9: Peso saludable.
+              <br /> 25 - 29.9: Sobrepeso. <br />
+              30 o más: Obesidad.
             </p>
           </SwiperSlide>
           <SwiperSlide className={styles.slide}>
-            <h6>Objetivos de consumo calórico por día</h6>
+            <h6>Objetivos de Consumo Calórico por Día</h6>
             <p>
-              laborious physical exercise, except to obtain some who avoids a
-              pain that produces no resultant pleasure?"laborious physical
-              exercise, except to obtain some advantage from it? But who has any
-              right to find fault with a
+              Es la cantidad de calorías que debes consumir diariamente para
+              alcanzar tu objetivo, ya sea perder peso, mantenerlo o ganar masa
+              muscular.
             </p>
           </SwiperSlide>
           <SwiperSlide className={styles.slide}>
             <h6>Grasas</h6>
             <p>
-              laborious physical exercise, except to obtain some who avoids a
-              pain that produces no resultant pleasure?"laborious physical
-              exercise, except to obtain some advantage from it? But who has any
-              right to find fault with a
+              Es la cantidad de grasas saludables que necesitas incluir en tu
+              dieta para apoyar funciones corporales esenciales como la
+              producción de hormonas y la absorción de vitaminas.
             </p>
           </SwiperSlide>
           <SwiperSlide className={styles.slide}>
             <h6>Proteínas</h6>
             <p>
-              laborious physical exercise, except to obtain some who avoids a
-              pain that produces no resultant pleasure?"laborious physical
-              exercise, except to obtain some advantage from it? But who has any
-              right to find fault with a
+              Es la cantidad de proteínas que debes consumir para ayudar a la
+              reparación y crecimiento muscular, además de apoyar otras
+              funciones vitales del cuerpo.
             </p>
           </SwiperSlide>
           <SwiperSlide className={styles.slide}>
             <h6>Carbohidratos</h6>
             <p>
-              laborious physical exercise, except to obtain some who avoids a
-              pain that produces no resultant pleasure?"laborious physical
-              exercise, except to obtain some advantage from it? But who has any
-              right to find fault with a
+              Son la principal fuente de energía para el cuerpo. La cantidad
+              recomendada ayuda a mantener altos niveles de energía y el
+              rendimiento en actividades diarias y ejercicios.
             </p>
           </SwiperSlide>
         </Swiper>
