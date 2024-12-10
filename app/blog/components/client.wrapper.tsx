@@ -95,7 +95,7 @@ export default function BlogItemsClientWrapper({
         </div>
 
         <div className={styles.blogFeaturedWrapper}>
-          {(selectedCategory === "Todos los productos"
+          {(selectedCategory === "Todas las entradas"
             ? featuredBlog.flatMap((blog: any) => blog.items) // Combina los items de todas las categorías
             : featuredBlog.find((blog: any) => blog.title === selectedCategory)
                 ?.items || []

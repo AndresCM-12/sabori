@@ -25,18 +25,46 @@ export default function ClientWhereFindUs({ title }: { title: string }) {
         <div className={bannerStyles.wrapper}>
           <section style={{ "--speed": `${90500}ms` } as React.CSSProperties}>
             {stores.map(
-              ({ image, index }: { image: string; index: number }) => (
+              ({
+                image,
+                link,
+                index,
+              }: {
+                image: string;
+                link: string;
+                index: number;
+              }) => (
                 <div className={bannerStyles.image} key={index + Math.random()}>
-                  <img src={image} alt={String(index)} />
+                  <img
+                    onClick={() => {
+                      window.open(link, "_blank");
+                    }}
+                    src={image}
+                    alt={String(index)}
+                  />
                 </div>
               )
             )}
           </section>
           <section style={{ "--speed": `${90500}ms` } as React.CSSProperties}>
             {stores.map(
-              ({ image, index }: { image: string; index: number }) => (
+              ({
+                image,
+                link,
+                index,
+              }: {
+                image: string;
+                link: string;
+                index: number;
+              }) => (
                 <div className={bannerStyles.image} key={index + Math.random()}>
-                  <img src={image} alt={String(index)} />
+                  <img
+                    onClick={() => {
+                      window.open(link, "_blank");
+                    }}
+                    src={image}
+                    alt={String(index)}
+                  />
                 </div>
               )
             )}

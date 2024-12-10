@@ -36,16 +36,28 @@ export default function WhereFindUsClientWrapper({
       <div className={bannerStyles.inner}>
         <div className={bannerStyles.wrapper}>
           <section style={{ "--speed": `${90500}ms` } as React.CSSProperties}>
-            {stores.map(({ image, index }) => (
+            {stores.map(({ image, link, index }) => (
               <div className={bannerStyles.image} key={index + Math.random()}>
-                <img src={image} alt={index} />
+                <img
+                  onClick={() => {
+                    window.open(link, "_blank");
+                  }}
+                  src={image}
+                  alt={index}
+                />
               </div>
             ))}
           </section>
           <section style={{ "--speed": `${90500}ms` } as React.CSSProperties}>
-            {stores.map(({ image, index }) => (
+            {stores.map(({ image, link, index }) => (
               <div className={bannerStyles.image} key={index + Math.random()}>
-                <img src={image} alt={index} />
+                <img
+                  onClick={() => {
+                    window.open(link, "_blank");
+                  }}
+                  src={image}
+                  alt={index}
+                />
               </div>
             ))}
           </section>
