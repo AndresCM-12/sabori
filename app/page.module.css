@@ -8,7 +8,7 @@
   height: 875px;
   width: 100%;
   padding-inline: 66px;
-  background-color: white;
+  background-color: transparent;
   border-radius: 20px;
 }
 
@@ -28,5 +28,10 @@
 @media screen and (max-width: 580px) {
   .swiperWrapper {
     height: 700px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .sImage {
+    max-width: 300px;
   }
 }

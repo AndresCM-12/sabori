@@ -7,7 +7,7 @@ export default async function Home() {
   const calculadoraInfoData = await fetchArrayInPost(calculadoraInfo);
 
   return (
-    <main className={styles.main}>
+    <main className={styles.main} style={{ marginTop: "0px" }}>
       <div className={styles.imageWrapper}>
         <img src={calculadoraInfoData.bgImage} alt="Contacto cover" />
         <div>

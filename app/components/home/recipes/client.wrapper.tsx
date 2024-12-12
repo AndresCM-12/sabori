@@ -16,7 +16,36 @@ export default function RecipesClientWrapper({ recipes }: { recipes: any }) {
         <a href="/recetas">
           <p>Ver todo</p>
         </a>
-        <img src={redRightArrow.src} alt="Flecha apuntando a la derecha roja" />
+        <div style={{
+          display: "flex",
+          gap: "10px",
+        }}>
+          <img
+            src={redRightArrow.src}
+            alt="Flecha apuntando a la derecha roja"
+            style={{
+              rotate: "180deg",
+              cursor: "pointer",
+            }}
+            onClick={() => {
+              (
+                document.getElementById("recipes-swiper") as any
+              )?.swiper.slidePrev();
+            }}
+          />
+          <img
+            src={redRightArrow.src}
+            alt="Flecha apuntando a la derecha roja"
+            style={{
+              cursor: "pointer",
+            }}
+            onClick={() => {
+              (
+                document.getElementById("recipes-swiper") as any
+              )?.swiper.slideNext();
+            }}
+          />
+        </div>
       </div>
       <Swiper
         id="recipes-swiper"

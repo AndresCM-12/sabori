@@ -3,7 +3,8 @@ import React from "react";
 import styles from "../../css/home/home-banner.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Thumbs } from "swiper/modules";
-
+import leftArrow from "../../../../public/images/left-arrow.svg";
+import rightArrow from "../../../../public/images/right-arrow.svg";
 import "swiper/css";
 
 interface HomeBannerClientWrapperProps {
@@ -18,7 +19,7 @@ export default function HomeBannerClientWrapper({
 }: {
   carouselData: HomeBannerClientWrapperProps[];
 }) {
-  const [thumbsSwiper, setThumbsSwiper] = React.useState(null);
+  const [thumbsSwiper, setThumbsSwiper] = React.useState();
   const [currentIndex, setCurrentIndex] = React.useState(0);
 
   return (
@@ -53,6 +54,49 @@ export default function HomeBannerClientWrapper({
           </SwiperSlide>
         ))}
       </Swiper>
+      <div
+      className={styles.arrowsFloating}
+        style={{
+          position: "absolute",
+          bottom: "180px",
+          right: "0",
+          zIndex: 100,
+          marginRight: "20px",
+          display: "flex",
+          gap: "12px",
+        }}
+      >
+        <img
+          src={leftArrow.src}
+          alt="Left Arrow"
+          style={{
+            width: "30px",
+            height: "50px",
+            objectFit: "contain",
+            filter: "invert(1)",
+            cursor: "pointer",
+          }}
+          onClick={() => {
+            const mainSwiper = document.getElementById("HomeBanner") as any;
+            mainSwiper.swiper.slidePrev();
+          }}
+        ></img>
+        <img
+          src={rightArrow.src}
+          alt="Right Arrow"
+          style={{
+            width: "30px",
+            height: "50px",
+            objectFit: "contain",
+            filter: "invert(1)",
+            cursor: "pointer",
+          }}
+          onClick={() => {
+            const mainSwiper = document.getElementById("HomeBanner") as any;
+            mainSwiper.swiper.slideNext();
+          }}
+        ></img>
+      </div>
 
       <Swiper
         className={styles.thumbs}
@@ -63,25 +107,38 @@ export default function HomeBannerClientWrapper({
         watchSlidesProgress
         onSwiper={(swiper: any) => setThumbsSwiper(swiper as any)}
       >
-        {carouselData.map((slide, index) => (
-          <SwiperSlide
-            className={
-              currentIndex === index
-                ? styles.activeThumbSlide
-                : styles.thumbSlide
-            }
-            key={index}
-            style={{
-              width:
-                currentIndex === index
-                  ? "300px !important"
-                  : "200px !important",
-              transition: "width 0.3s",
-            }}
-          >
-            <img src={slide.image} alt={slide.title} />
-          </SwiperSlide>
-        ))}
+        {carouselData.map((slide, index) => {
+          const currentIndexIsOdd = currentIndex % 2 !== 0;
+          var indexToDecrease;
+          var indexToIncrease;
+
+          if (currentIndexIsOdd) {
+            indexToDecrease = currentIndex - 1;
+            indexToIncrease = currentIndex;
+          } else {
+            indexToDecrease = currentIndex + 1;
+            indexToIncrease = currentIndex;
+          }
+
+          return (
+            <SwiperSlide
+              className={
+                index === indexToDecrease
+                  ? styles.reducedSlide
+                  : index === indexToIncrease
+                  ? styles.activeThumbSlide
+                  : styles.thumbSlide
+              }
+              key={index}
+              style={{
+                width: "200px",
+                transition: "width 0.5s",
+              }}
+            >
+              <img src={slide.image} alt={slide.title} />
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
     </div>
   );
