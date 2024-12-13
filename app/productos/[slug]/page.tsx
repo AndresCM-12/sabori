@@ -194,7 +194,7 @@ export default function Home() {
           <div className={styles.textWrapper}>
             <h6>Contáctanos</h6>
             <div className={styles.formWrapper}>
-              <form action="sent" method="post">
+              <form action="https://formsubmit.co/atencionclientes@bafar.com.mx" method="POST">
                 <div className={styles.horizontalWrapper}>
                   <input
                     type="text"

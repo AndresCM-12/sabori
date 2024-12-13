@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./css/footer.module.css";
 import saboriLogo from "../../public/images/sabori-logo.webp";
+import ClientFooterForm from "./client-handler-footer";
 
 export default function CustomFooter() {
   return (
@@ -42,12 +43,10 @@ export default function CustomFooter() {
       <div className={styles.newsLetterContainer}>
         <h6>Conoce más detalles de como cuidarte mejor</h6>
         <p>
-        Porque cuidar de ti nunca fue tan fácil. Suscríbete para recibir más detalles y tips exclusivos
+          Porque cuidar de ti nunca fue tan fácil. Suscríbete para recibir más
+          detalles y tips exclusivos
         </p>
-        <form action="POST">
-          <input type="email" placeholder="Correo electronico" />
-          <button type="submit">Suscribirse</button>
-        </form>
+        <ClientFooterForm />
       </div>
     </footer>
   );

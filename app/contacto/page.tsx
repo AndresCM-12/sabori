@@ -4,12 +4,20 @@ import WhereFindUs from "../components/where-find-us/where-find-us";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
+    <main
+      className={styles.main}
+      style={{
+        marginTop: "0px !important",
+      }}
+    >
       <div className={styles.imageWrapper}>
         <img src={contactoCover.src} alt="Contacto cover" />
         <h1>¡Contáctanos!</h1>
         <div className={styles.formWrapper}>
-          <form action="sent" method="post">
+          <form
+            action="https://formsubmit.co/atencionclientes@bafar.com.mx"
+            method="POST"
+          >
             <div className={styles.horizontalWrapper}>
               <input
                 type="text"
@@ -59,9 +67,15 @@ export default function Home() {
               <button type="submit">Enviar</button>
             </div>
             <div className={styles.socialWrapper}>
-              <a href="ig">Ig</a>
-              <a href="ig">Fb</a>
-              <a href="ig">Yb</a>
+              <a href="https://www.instagram.com/sabori_mx/" target="_blank">
+                Ig
+              </a>
+              <a href="https://www.facebook.com/SoySabori" target="_blank">
+                Fb
+              </a>
+              <a href="https://www.youtube.com/@sabori2496" target="_blank">
+                Yt
+              </a>
             </div>
           </form>
         </div>

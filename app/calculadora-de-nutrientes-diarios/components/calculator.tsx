@@ -632,8 +632,42 @@ function StepFive({
           </div>
           <button
             type="submit"
-            onClick={() => {
-              setStep(step + 1);
+            onClick={async (event) => {
+              event.preventDefault();
+
+              const checkbox = document.getElementById(
+                "suscribirse"
+              ) as HTMLInputElement;
+              if (!checkbox.checked) {
+                return;
+              }
+
+              const email = document.querySelector(
+                'input[name="Email"]'
+              ) as HTMLInputElement;
+              const name = document.querySelector(
+                'input[name="Nombre"]'
+              ) as HTMLInputElement;
+              //We call our api /api/subscribe
+              const response = await fetch("/api/subscribe", {
+                body: JSON.stringify({
+                  email: email.value,
+                  name: name.value,
+                  origin: "Calculadora",
+                }),
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                method: "POST",
+              });
+
+              const data = await response.json();
+              console.log("response: ", data, response.status);
+              if (response.status === 201) {
+                setStep(step + 1);
+              } else {
+                alert(data.error);
+              }
             }}
           >
             Conocer mis resultados
