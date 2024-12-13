@@ -17,15 +17,19 @@ export default function OurProductsClientWrapper({
   products: any[];
   homeInfo: any;
 }) {
-  console.log(homeInfo);
   return (
     <section>
       <div className={styles.textWrapper}>
         <h2>{homeInfo?.title}</h2>
         <p>{homeInfo?.description}</p>
-        <a style={{
-          backgroundColor: "#d91e3e",
-        }} href="/productos">Ver detalles</a>
+        <a
+          style={{
+            backgroundColor: "#d91e3e",
+          }}
+          href="/productos"
+        >
+          Ver detalles
+        </a>
       </div>
       <div className={styles.swiperWrapper}>
         <Swiper

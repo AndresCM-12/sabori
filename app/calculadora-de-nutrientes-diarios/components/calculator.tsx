@@ -8,6 +8,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import ClientOurProducts from "@/app/components/home/our-products/client.our-products";
 import ClientRecipes from "@/app/components/home/recipes/client.recipes";
+import { set } from "zod";
 
 export default function Calculator() {
   const [currentStep, setCurrentStep] = React.useState(0);
@@ -611,6 +612,8 @@ function StepFive({
   stepInfo: any;
   setInfo: Function;
 }) {
+  const [isLoading, setIsLoading] = React.useState(false);
+
   return (
     <div className={styles.calculatorBody}>
       <div className={styles.header}>
@@ -632,41 +635,49 @@ function StepFive({
           </div>
           <button
             type="submit"
+            style={{
+              opacity: isLoading ? 0.5 : 1,
+            }}
+            disabled={isLoading}
             onClick={async (event) => {
               event.preventDefault();
+              setIsLoading(true);
+              try {
+                const checkbox = document.getElementById(
+                  "suscribirse"
+                ) as HTMLInputElement;
+                if (!checkbox.checked) {
+                  return;
+                }
 
-              const checkbox = document.getElementById(
-                "suscribirse"
-              ) as HTMLInputElement;
-              if (!checkbox.checked) {
-                return;
-              }
+                const email = document.querySelector(
+                  'input[name="Email"]'
+                ) as HTMLInputElement;
+                const name = document.querySelector(
+                  'input[name="Nombre"]'
+                ) as HTMLInputElement;
+                //We call our api /api/subscribe
+                const response = await fetch("/api/subscribe", {
+                  body: JSON.stringify({
+                    email: email.value,
+                    name: name.value,
+                    origin: "Sabori - Calculadora",
+                  }),
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  method: "POST",
+                });
 
-              const email = document.querySelector(
-                'input[name="Email"]'
-              ) as HTMLInputElement;
-              const name = document.querySelector(
-                'input[name="Nombre"]'
-              ) as HTMLInputElement;
-              //We call our api /api/subscribe
-              const response = await fetch("/api/subscribe", {
-                body: JSON.stringify({
-                  email: email.value,
-                  name: name.value,
-                  origin: "Calculadora",
-                }),
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                method: "POST",
-              });
-
-              const data = await response.json();
-              console.log("response: ", data, response.status);
-              if (response.status === 201) {
-                setStep(step + 1);
-              } else {
-                alert(data.error);
+                const data = await response.json();
+                if (response.status === 201) {
+                  setStep(step + 1);
+                } else {
+                  alert(data.error);
+                }
+                setIsLoading(false);
+              } catch (error) {
+                setIsLoading(false);
               }
             }}
           >
@@ -795,13 +806,13 @@ function Results({
       carbs: Math.floor(carbs),
     });
 
-    console.log("Bmr: ", bmr);
-    console.log("Imc: ", imc);
-    console.log("Tdee: ", tdee);
-    console.log("Bmlf: ", bmlf);
-    console.log("Proteins: ", proteins);
-    console.log("Fats: ", fats);
-    console.log("Carbs: ", carbs);
+    // console.log("Bmr: ", bmr);
+    // console.log("Imc: ", imc);
+    // console.log("Tdee: ", tdee);
+    // console.log("Bmlf: ", bmlf);
+    // console.log("Proteins: ", proteins);
+    // console.log("Fats: ", fats);
+    // console.log("Carbs: ", carbs);
   }, []);
 
   return (
