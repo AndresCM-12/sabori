@@ -152,7 +152,6 @@ export async function fetchArrayInBlogWithMarkDown(postName: string) {
     const postHtmlWithOutCode = post
       .split("<code>")[0]
       .concat(post.split("</code>")[1]);
-    console.log("postHtmlWithOutCode:", postHtmlWithOutCode);
     return { code: JSON.parse(decodedPost), info: postHtmlWithOutCode };
   } catch (error) {
     console.error("Error fetching data for:", postName);
