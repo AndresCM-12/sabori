@@ -7,6 +7,7 @@ import { fetchArrayInPost, fetchArrayInRecipe } from "@/app/utils/methods";
 import Loading from "@/app/components/loading";
 import WhereFindUsClientWrapper from "@/app/components/where-find-us/client.wrapper";
 import { homeInfo, whereFindUs } from "@/app/utils/constants";
+import HelpFloatingIcon from "@/app/components/HelpFloatingIcon";
 
 export default function Home() {
   const [recipeDetails, setRecipeDetails] = useState({
@@ -83,6 +84,8 @@ export default function Home() {
 
   return didFetch.current ? (
     <>
+      <HelpFloatingIcon />
+
       <section className={styles.main}>
         <div className={styles.imageWrapper}>
           <div className={styles.titleWrapper}>

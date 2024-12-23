@@ -2,6 +2,10 @@ import styles from "./css/page.module.css";
 import contactoCover from "../../public/images/contacto-cover.webp";
 import WhereFindUs from "../components/where-find-us/where-find-us";
 
+import logoInstagram from "../../public/images/instagram-logo.svg";
+import logoFacebook from "../../public/images/facebook-logo.svg";
+import logoYoutube from "../../public/images/youtube-logo.svg";
+
 export default function Home() {
   return (
     <main
@@ -65,17 +69,6 @@ export default function Home() {
                 </label>
               </div>
               <button type="submit">Enviar</button>
-            </div>
-            <div className={styles.socialWrapper}>
-              <a href="https://www.instagram.com/sabori_mx/" target="_blank">
-                Ig
-              </a>
-              <a href="https://www.facebook.com/SoySabori" target="_blank">
-                Fb
-              </a>
-              <a href="https://www.youtube.com/@sabori2496" target="_blank">
-                Yt
-              </a>
             </div>
           </form>
         </div>

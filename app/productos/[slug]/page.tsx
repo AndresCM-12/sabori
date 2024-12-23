@@ -9,6 +9,7 @@ import ClientWhereFindUs from "@/app/components/where-find-us/client.where-find-
 import OurProducts from "@/app/components/home/our-products/our-products";
 import Loading from "@/app/components/loading";
 import ClientOurProducts from "@/app/components/home/our-products/client.our-products";
+import HelpFloatingIcon from "@/app/components/HelpFloatingIcon";
 
 export default function Home() {
   const [productDetails, setProductDetails] = useState({
@@ -185,6 +186,7 @@ export default function Home() {
           </div>
         </div>
       </main>
+      <HelpFloatingIcon />
       <ClientOurProducts />
       <div style={{ height: "240px" }}></div>
       <ClientWhereFindUs title="Distribuidores" />
@@ -194,7 +196,10 @@ export default function Home() {
           <div className={styles.textWrapper}>
             <h6>Contáctanos</h6>
             <div className={styles.formWrapper}>
-              <form action="https://formsubmit.co/atencionclientes@bafar.com.mx" method="POST">
+              <form
+                action="https://formsubmit.co/atencionclientes@bafar.com.mx"
+                method="POST"
+              >
                 <div className={styles.horizontalWrapper}>
                   <input
                     type="text"

@@ -4,6 +4,7 @@ import FeaturedBlog from "./components/featured-blog";
 import { useEffect, useRef, useState } from "react";
 import { fetchArrayInBlogWithMarkDown } from "@/app/utils/methods";
 import Loading from "@/app/components/loading";
+import HelpFloatingIcon from "@/app/components/HelpFloatingIcon";
 
 export default function Home() {
   const [blogDetails, setBlogDetails] = useState(null) as any;
@@ -23,6 +24,7 @@ export default function Home() {
 
   return didFetch.current ? (
     <>
+      <HelpFloatingIcon />
       <main className={styles.main}>
         <div
           style={{
