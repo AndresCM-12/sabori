@@ -8,7 +8,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import ClientOurProducts from "@/app/components/home/our-products/client.our-products";
 import ClientRecipes from "@/app/components/home/recipes/client.recipes";
-import { set } from "zod";
 
 export default function Calculator() {
   const [currentStep, setCurrentStep] = React.useState(0);
@@ -647,6 +646,8 @@ function StepFive({
                   "suscribirse"
                 ) as HTMLInputElement;
                 if (!checkbox.checked) {
+                  alert("Debes aceptar la suscripción para continuar");
+                  setIsLoading(false);
                   return;
                 }
 
@@ -670,7 +671,10 @@ function StepFive({
                 });
 
                 const data = await response.json();
+                const errorMessage: string = data.error;
                 if (response.status === 201) {
+                  setStep(step + 1);
+                } else if (errorMessage.includes("ya estás suscrito")) {
                   setStep(step + 1);
                 } else {
                   alert(data.error);
@@ -678,6 +682,7 @@ function StepFive({
                 setIsLoading(false);
               } catch (error) {
                 setIsLoading(false);
+                alert("Ocurrió un error, intenta de nuevo más tarde");
               }
             }}
           >
