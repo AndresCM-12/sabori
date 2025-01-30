@@ -415,45 +415,63 @@ function StepThree({
   const options = [
     {
       title: "Sedentario",
-      description:
-        "Pocas actividades en tu día, mayormente sentado o descansando y no haces ejercicio semanal",
+      description: "Sin actividad física",
       data: [1.15],
       options: ["No haces ejercicio"],
     },
     {
       title: "Ligero",
       description:
-        "Actividades diarias suaves, como caminar o tareas domésticas ligeras, realizas 1 o 2 días de ejercicio por semana.",
-      data: [1.2, 1.35],
-      options: ["40-60 min intenso", "90-120 min ligero"],
+        "Mi tipo de ejercicio es: 30-45 min intenso ó 60-90 min ligero.",
+      data: [1.2, 1.25, 1.3, 1.35],
+      options: [
+        "Poco o nada de ejercicio ni deporte",
+        "Ejercicio o deporte 1-3 días a la semana",
+        "Ejercicio o deporte 4-5 días a la semana",
+        "Ejercicio o deporte 6-7 días a la semana",
+      ],
     },
     {
       title: "Moderado",
       description:
-        "Actividad diaria regular, como trabajar de pie o caminar por tiempo prolongado; haces 3 a 4 días de ejercicio moderado.",
-      data: [1.4, 1.55],
-      options: ["60-90 min intenso", "60-90 min ligero"],
+        "Mi tipo de ejercicio es: 45-60 min intenso ó 90-120 min ligero.",
+      data: [1.4, 1.45, 1.5, 1.55],
+      options: [
+        "Poco o nada de ejercicio ni deporte",
+        "Ejercicio o deporte 1-3 días a la semana",
+        "Ejercicio o deporte 4-5 días a la semana",
+        "Ejercicio o deporte 6-7 días a la semana",
+      ],
     },
     {
       title: "Activo",
       description:
-        "Muchas actividades diarias, como caminar largas distancias, cargar objetos; entrenas 4-5 días a la semana.",
-      data: [1.6, 1.75],
-      options: ["30-45 min intenso", "60-90 min ligero"],
+        "Mi tipo de ejercicio es: 60-90 min intenso ó 120-180 min ligero.",
+      data: [1.6, 1.65, 1.7, 1.75],
+      options: [
+        "Poco o nada de ejercicio ni deporte",
+        "Ejercicio o deporte 1-3 días a la semana",
+        "Ejercicio o deporte 4-5 días a la semana",
+        "Ejercicio o deporte 6-7 días a la semana",
+      ],
     },
     {
       title: "Muy activo",
-      description:
-        "Muchas actividades diarias o trabajo físico constante, entrenas 6 a 7 días de ejercicio intenso o prolongado.",
-      data: [1.8, 1.95],
-      options: ["90 min o más o intenso", "180 min o más ligero"],
+      description: "Mi tipo de ejercicio es: +90 min intenso ó +180 min ligero",
+      data: [1.8, 1.85, 1.9, 1.95],
+      options: [
+        "Poco o nada de ejercicio ni deporte",
+        "Ejercicio o deporte 1-3 días a la semana",
+        "Ejercicio o deporte 4-5 días a la semana",
+        "Ejercicio o deporte 6-7 días a la semana",
+      ],
     },
   ];
 
   return (
     <div className={styles.calculatorBody}>
       <div className={styles.header}>
-        <h2>Nivel de actividad diaria</h2>
+        <h2>Intensidad de actividad física</h2>
       </div>
       <div className={styles.body}>
         <div className={styles.stepOneWrapper}>
@@ -534,10 +552,26 @@ function StepFour({
   stepInfo: any;
   setInfo: Function;
 }) {
+  useEffect(() => {
+    //We check if the option selected is 0 we select the first option by default and add another step to the stepInfo
+    if (stepInfo[step - 1]?.stepThreeOptions.length == 1) {
+      const newValueOfStep = {
+        stepFourTitle: stepInfo[step - 1]?.stepThreeOptions[0],
+        stepFourValue: stepInfo[step - 1]?.stepThreeValues[0],
+      };
+      const newInfo = [...stepInfo];
+      newInfo[step] = newValueOfStep;
+      setInfo(newInfo);
+      if (stepInfo[step]) {
+        step < 4 ? setStep(step + 1) : null;
+      }
+    }
+  }, []);
+
   return (
     <div className={styles.calculatorBody}>
       <div className={styles.header}>
-        <h2>Intensidad del ejercicio</h2>
+        <h2>Actividad física semanal</h2>
       </div>
 
       <div className={styles.body}>

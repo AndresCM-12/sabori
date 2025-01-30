@@ -8,10 +8,10 @@ export default function HelpFloatingIcon() {
         position: "fixed",
         bottom: "-8px",
         right: "0px",
-        zIndex: "2",
+        zIndex: "9",
       }}
     >
-      <a href="/contacto">
+      <a href="/calculadora-de-nutrientes-diarios">
         <img
           src={contactTag.src}
           width={90}
