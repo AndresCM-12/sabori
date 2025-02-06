@@ -822,18 +822,18 @@ function Results({
     tdee = bmr * stepInfo[3].stepFourValue;
 
     if (stepInfo[0].stepOneTitle === "Bajar de peso") {
-      bmlf = tdee * 0.75;
+      bmlf = tdee - 500;
     } else if (stepInfo[0].stepOneTitle === "Mantener peso") {
-      bmlf = tdee * 0.3;
+      bmlf = tdee;
     } else if (stepInfo[0].stepOneTitle === "Aumentar masa muscular") {
-      bmlf = tdee * 0.36;
+      bmlf = tdee + 300;
     } else if (stepInfo[0].stepOneTitle === "Tonificar") {
-      bmlf = tdee * 0.34;
+      bmlf = tdee - 200;
     }
 
     fats = (bmlf * 0.25) / 9;
     proteins = stepInfo[1].stepTwoValue.weight * 2.2;
-    carbs = (bmlf - fats * 9 - proteins * 4) / 4;
+    carbs = (bmlf - (fats * 9 + proteins * 4)) / 4;
 
     setResults({
       bmr: Math.floor(bmr),
