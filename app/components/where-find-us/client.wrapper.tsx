@@ -33,36 +33,34 @@ export default function WhereFindUsClientWrapper({
       >
         {homeInfo.description}
       </p>
-      <div className={bannerStyles.inner}>
-        <div className={bannerStyles.wrapper}>
-          <section style={{ "--speed": `${90500}ms` } as React.CSSProperties}>
-            {stores.map(({ image, link, index }) => (
-              <div className={bannerStyles.image} key={index + Math.random()}>
-                <img
-                  onClick={() => {
-                    window.open(link, "_blank");
-                  }}
-                  src={image}
-                  alt={index}
-                />
-              </div>
-            ))}
-          </section>
-          <section style={{ "--speed": `${90500}ms` } as React.CSSProperties}>
-            {stores.map(({ image, link, index }) => (
-              <div className={bannerStyles.image} key={index + Math.random()}>
-                <img
-                  onClick={() => {
-                    window.open(link, "_blank");
-                  }}
-                  src={image}
-                  alt={index}
-                />
-              </div>
-            ))}
-          </section>
+      {stores?.length > 0 && (
+        <div className={bannerStyles.inner}>
+          <div className={bannerStyles.wrapper}>
+            <section style={{ "--speed": `${90500}ms` } as React.CSSProperties}>
+              {stores.map(({ image, link }, idx) => (
+                <div className={bannerStyles.image} key={`store-${idx}`}>
+                  <img
+                    onClick={() => window.open(link, "_blank")}
+                    src={image}
+                    alt={`store-${idx}`}
+                  />
+                </div>
+              ))}
+            </section>
+            <section style={{ "--speed": `${90500}ms` } as React.CSSProperties}>
+              {stores.map(({ image, link }, idx) => (
+                <div className={bannerStyles.image} key={`store-${idx}`}>
+                  <img
+                    onClick={() => window.open(link, "_blank")}
+                    src={image}
+                    alt={`store-${idx}`}
+                  />
+                </div>
+              ))}
+            </section>
+          </div>
         </div>
-      </div>
+      )}
     </section>
   );
 }

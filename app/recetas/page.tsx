@@ -26,7 +26,7 @@ export default function Home({ info }: any) {
           }}
         ></div>
       </main>
-      {/* <WhereFindUs title="Distribuidores" /> */}
+      <WhereFindUs title="Distribuidores" />
     </>
   );
 }

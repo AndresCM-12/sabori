@@ -7,5 +7,11 @@ export default async function WhereFindUs({ title }: { title: string }) {
   const stores = await fetchArrayInPost(whereFindUs);
   const homeInfoData = await fetchArrayInPost(homeInfo);
 
-  return <WhereFindUsClientWrapper title={title} stores={stores} homeInfo={homeInfoData.dondeEncontrarnos} />;
+  return (
+    <WhereFindUsClientWrapper
+      title={title}
+      stores={stores}
+      homeInfo={homeInfoData.dondeEncontrarnos}
+    />
+  );
 }
