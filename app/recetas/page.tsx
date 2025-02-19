@@ -11,9 +11,9 @@ export default function Home({ info }: any) {
         <HelpFloatingIcon />
         <div className={styles.imageWrapper}>
           <div className={styles.textWrapper}>
-            <h1>{info.title}</h1>
+            <h1>{info?.title}</h1>
             <p>
-              {info.description}
+              {info?.description}
             </p>
           </div>
           <div className={styles.recetasWrapper}></div>
