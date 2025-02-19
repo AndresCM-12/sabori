@@ -3,6 +3,9 @@ import { Lato } from "next/font/google";
 import "../globals.css";
 import Header from "../components/header/header";
 import CustomFooter from "../components/footer";
+import { fetchArrayInBlogWithMarkDown } from "../utils/methods";
+import { avisoPrivacidadInfo } from "../utils/constants";
+import Home from "./page";
 
 const lato = Lato({
   weight: ["100", "300", "400", "700", "900"],
@@ -14,16 +17,18 @@ export const metadata: Metadata = {
   description: "Sabori Parma",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const info = await fetchArrayInBlogWithMarkDown(avisoPrivacidadInfo);
+
   return (
     <html lang="es">
       <body className={lato.className}>
         <Header />
-        {children}
+        <Home info={info} />
         <CustomFooter />
       </body>
     </html>

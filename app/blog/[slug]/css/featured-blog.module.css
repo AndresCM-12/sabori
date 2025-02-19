@@ -79,8 +79,6 @@
   height: 33px;
   position: relative;
   transition: all 0.3s ease-in-out;
-}
-.blogCard:hover .text {
   height: fit-content;
   position: relative;
 }

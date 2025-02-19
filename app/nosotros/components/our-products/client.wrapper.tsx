@@ -12,19 +12,17 @@ import "swiper/css/effect-coverflow";
 
 export default function OurProductsClientWrapper({
   products,
+  info,
 }: {
   products: any;
+  info: any;
 }) {
   return (
     <section>
       <div className={styles.textWrapper}>
-        <h2>Nuestros productos</h2>
-        <p>
-          "But I must explain to you how all this mistaken idea of denouncing
-          pleasure and praising pain was born and I will give you a complete
-          account of the system
-        </p>
-        <a href="/productos">Ver detalles</a>
+        <h2>{info.productsTitle}</h2>
+        <p>{info.productsDescription}</p>
+        <a href="/productos">{info.ctaText}</a>
       </div>
       <div className={styles.swiperWrapper}>
         <Swiper

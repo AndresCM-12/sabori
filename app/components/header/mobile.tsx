@@ -98,8 +98,8 @@ export default function MobileHeader() {
         </div>
         <div className={styles.termsWrapper}>
           <a href="">Aviso de privacidad</a>
-          <span>|</span>
-          <a href="">Términos y condiciones</a>
+          {/* <span>|</span>
+          <a href="">Términos y condiciones</a> */}
         </div>
       </div>
     </>

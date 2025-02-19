@@ -4,18 +4,16 @@ import Recipes from "./components/recipes/recipes";
 import WhereFindUs from "../components/where-find-us/where-find-us";
 import HelpFloatingIcon from "../components/HelpFloatingIcon";
 
-export default function Home() {
+export default function Home({ info }: any) {
   return (
     <>
       <main className={styles.main}>
-      <HelpFloatingIcon />
+        <HelpFloatingIcon />
         <div className={styles.imageWrapper}>
           <div className={styles.textWrapper}>
-            <h1>Recetas</h1>
+            <h1>{info.title}</h1>
             <p>
-              But I must explain to you how all this mistaken idea of denouncing
-              pleasure and praising pain was born and I will give you a complete
-              account of the system
+              {info.description}
             </p>
           </div>
           <div className={styles.recetasWrapper}></div>

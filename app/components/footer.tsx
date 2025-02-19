@@ -53,8 +53,8 @@ export default function CustomFooter() {
         </nav>
         <div>
           <a href="aviso-de-privacidad">Aviso de privacidad</a>
-          <span> | </span>
-          <a href="terminos-y-condiciones">Términos y condiciones</a>
+          {/* <span> | </span>
+          <a href="terminos-y-condiciones">Términos y condiciones</a> */}
         </div>
       </div>
 

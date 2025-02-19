@@ -27,14 +27,40 @@
   line-height: 18px;
   text-align: left;
 }
-
-@media screen and (max-width: 1110px){
-    .main{
-        padding-inline: 16px;
-    }
+.innerHtml {
+  font-size: 16px;
+  line-height: 1.5;
 }
-@media screen and (max-width: 630px){
-    .textWrapper{
-        padding: 24px;
-    }
+
+.innerHtml p,
+.innerHtml h1,
+.innerHtml h2,
+.innerHtml h3,
+.innerHtml h4,
+.innerHtml h5,
+.innerHtml h6 {
+  margin-bottom: 12px;
+}
+
+.innerHtml ul,
+.innerHtml ol {
+  margin-bottom: 12px;
+  padding-inline-start: 24px;
+}
+
+.innerHtml a {
+  color: #0070f3;
+  text-decoration: none;
+  margin-bottom: 12px;
+}
+
+@media screen and (max-width: 1110px) {
+  .main {
+    padding-inline: 16px;
+  }
+}
+@media screen and (max-width: 630px) {
+  .textWrapper {
+    padding: 24px;
+  }
 }

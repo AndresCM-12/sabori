@@ -41,12 +41,7 @@ export default function Home() {
                   placeholder="Teléfono"
                   required
                 />
-                <input
-                  type="text"
-                  name="Recursos Humanos"
-                  placeholder="Recursos Humanos"
-                  required
-                />
+                <input type="text" name="Área" placeholder="Área" required />
                 <input
                   type="text"
                   name="Estado"
