@@ -17,7 +17,7 @@ export default function Home() {
         </div>
         <BlogItems />
       </main>
-      <WhereFindUs title="Distribuidores" />
+      {/* <WhereFindUs title="Distribuidores" /> */}
     </>
   );
 }
