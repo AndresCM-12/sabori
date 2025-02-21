@@ -45,7 +45,7 @@ export async function fetchMetaData(postName: string) {
         "Content-Type": "application/json",
       },
       next: {
-        revalidate: 1,
+        revalidate: 3600,
       },
       body: JSON.stringify({
         query: getMetaDataGraphqlQuery(postName),
