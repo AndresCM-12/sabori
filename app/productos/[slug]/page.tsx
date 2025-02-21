@@ -6,7 +6,6 @@ import contactImage from "../../../public/images/contact-cover.webp";
 import { useEffect, useRef, useState } from "react";
 import { fetchArrayInRecipe } from "@/app/utils/methods";
 import ClientWhereFindUs from "@/app/components/where-find-us/client.where-find-us";
-import OurProducts from "@/app/components/home/our-products/our-products";
 import Loading from "@/app/components/loading";
 import ClientOurProducts from "@/app/components/home/our-products/client.our-products";
 import HelpFloatingIcon from "@/app/components/HelpFloatingIcon";

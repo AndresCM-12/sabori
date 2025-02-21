@@ -3,16 +3,18 @@ import { Lato } from "next/font/google";
 import "../globals.css";
 import Header from "../components/header/header";
 import CustomFooter from "../components/footer";
+import { fetchMetaData } from "../utils/methods";
+import { calculadoraMD } from "../utils/constants";
 
 const lato = Lato({
   weight: ["100", "300", "400", "700", "900"],
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Sabori Parma | Calculadora de nutrientes diarios",
-  description: "Sabori Parma",
-};
+export async function generateMetadata({ params }: any) {
+  const metaData = await fetchMetaData(calculadoraMD);
+  return metaData;
+}
 
 export default function RootLayout({
   children,

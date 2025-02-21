@@ -3,8 +3,8 @@ import { Lato } from "next/font/google";
 import "../globals.css";
 import Header from "../components/header/header";
 import CustomFooter from "../components/footer";
-import { fetchArrayInBlogWithMarkDown } from "../utils/methods";
-import { avisoPrivacidadInfo } from "../utils/constants";
+import { fetchArrayInBlogWithMarkDown, fetchMetaData } from "../utils/methods";
+import { avisoPrivacidadInfo, avisoPrivacidadMD } from "../utils/constants";
 import Home from "./page";
 
 const lato = Lato({
@@ -12,10 +12,10 @@ const lato = Lato({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Sabori Parma | Aviso de privacidad",
-  description: "Sabori Parma",
-};
+export async function generateMetadata({ params }: any) {
+  const metaData = await fetchMetaData(avisoPrivacidadMD);
+  return metaData;
+}
 
 export default async function RootLayout({
   children,

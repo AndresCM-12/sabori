@@ -1,6 +1,7 @@
 import {
   URL,
   getBlogsGraphqlQuery,
+  getMetaDataGraphqlQuery,
   getProductsGraphqlQuery,
   getRecipesGraphqlQuery,
   getSectionsGraphqlQuery,
@@ -33,6 +34,36 @@ export async function fetchArrayInPost(postName: string) {
     console.error("Error fetching data for:", postName);
     console.log("error:", error);
     return [];
+  }
+}
+
+export async function fetchMetaData(postName: string) {
+  try {
+    const response = await fetch(URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      next: {
+        revalidate: 1,
+      },
+      body: JSON.stringify({
+        query: getMetaDataGraphqlQuery(postName),
+      }),
+    });
+
+    const data = await response.json();
+    const post: string =
+      data.data.categories.edges[0].node.posts.edges[0].node.content;
+    const decodedPost = post
+      .split("<code>")[1]
+      .split("</code>")[0]
+      .replaceAll("&#91;", "[");
+    return JSON.parse(decodedPost);
+  } catch (error) {
+    console.error("Error fetching data for:", postName);
+    console.log("error:", error);
+    return {};
   }
 }
 

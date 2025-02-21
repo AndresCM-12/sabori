@@ -25,22 +25,12 @@ export default function ClientWhereFindUs({ title }: { title: string }) {
         <div className={bannerStyles.wrapper}>
           <section style={{ "--speed": `${90500}ms` } as React.CSSProperties}>
             {stores.map(
-              ({
-                image,
-                link,
-                index,
-              }: {
-                image: string;
-                link: string;
-                index: number;
-              }) => (
-                <div className={bannerStyles.image} key={index + Math.random()}>
+              ({ image, link }: { image: string; link: string }, idx: any) => (
+                <div className={bannerStyles.image} key={`store-${idx}`}>
                   <img
-                    onClick={() => {
-                      window.open(link, "_blank");
-                    }}
+                    onClick={() => window.open(link, "_blank")}
                     src={image}
-                    alt={String(index)}
+                    alt={`store-${idx}`}
                   />
                 </div>
               )
@@ -48,22 +38,12 @@ export default function ClientWhereFindUs({ title }: { title: string }) {
           </section>
           <section style={{ "--speed": `${90500}ms` } as React.CSSProperties}>
             {stores.map(
-              ({
-                image,
-                link,
-                index,
-              }: {
-                image: string;
-                link: string;
-                index: number;
-              }) => (
-                <div className={bannerStyles.image} key={index + Math.random()}>
+              ({ image, link }: { image: string; link: string }, idx: any) => (
+                <div className={bannerStyles.image} key={`store-${idx}`}>
                   <img
-                    onClick={() => {
-                      window.open(link, "_blank");
-                    }}
+                    onClick={() => window.open(link, "_blank")}
                     src={image}
-                    alt={String(index)}
+                    alt={`store-${idx}`}
                   />
                 </div>
               )

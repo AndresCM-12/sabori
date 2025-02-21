@@ -15,10 +15,41 @@ export const allRecipes = "all-recipes";
 export const allBlogs = "all-blogs";
 export const aboutUs = "about-us";
 
+//meta data
+export const homeMD = "home";
+export const productosMD = "productos";
+export const recetasMD = "recetas";
+export const nosotrosMD = "nosotros";
+export const blogMD = "blog";
+export const calculadoraMD = "calculadora";
+export const contactoMD = "contacto";
+export const avisoPrivacidadMD = "aviso";
+
 export const getSectionsGraphqlQuery = (postName: string) => {
   return `
     query get_post_by_name {
       categories(where: {name: "sections"}) {
+        edges {
+          node {
+            id
+            posts(where: {name: "${postName}"}) {
+              edges {
+                node {
+                  content
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    `;
+};
+
+export const getMetaDataGraphqlQuery = (postName: string) => {
+  return `
+    query get_post_by_name {
+      categories(where: {name: "metadata"}) {
         edges {
           node {
             id

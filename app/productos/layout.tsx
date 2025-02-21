@@ -1,18 +1,20 @@
-import type { Metadata } from "next";
+import type { Metadata, ResolvingMetadata } from "next";
 import { Lato } from "next/font/google";
 import "../globals.css";
 import Header from "../components/header/header";
 import CustomFooter from "../components/footer";
+import { fetchMetaData } from "../utils/methods";
+import { productosMD } from "../utils/constants";
 
 const lato = Lato({
   weight: ["100", "300", "400", "700", "900"],
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Sabori Parma | Productos",
-  description: "Sabori Parma",
-};
+export async function generateMetadata() {
+  const metaData = await fetchMetaData(productosMD);
+  return metaData;
+}
 
 export default function RootLayout({
   children,
