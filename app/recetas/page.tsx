@@ -3,8 +3,11 @@ import BlogItems from "./components/blog-items/blog-items";
 import Recipes from "./components/recipes/recipes";
 import WhereFindUs from "../components/where-find-us/where-find-us";
 import HelpFloatingIcon from "../components/HelpFloatingIcon";
+import { fetchArrayInPost } from "../utils/methods";
 
-export default function Home({ info }: any) {
+export default async function Home() {
+  const info = await fetchArrayInPost("recetas-info");
+
   return (
     <>
       <main className={styles.main}>
@@ -12,9 +15,7 @@ export default function Home({ info }: any) {
         <div className={styles.imageWrapper}>
           <div className={styles.textWrapper}>
             <h1>{info?.title}</h1>
-            <p>
-              {info?.description}
-            </p>
+            <p>{info?.description}</p>
           </div>
           <div className={styles.recetasWrapper}></div>
         </div>

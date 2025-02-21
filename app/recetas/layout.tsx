@@ -16,18 +16,16 @@ export const metadata: Metadata = {
   description: "Sabori Parma",
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const info = await fetchArrayInPost("recetas-info");
-
   return (
     <html lang="es">
       <body className={lato.className}>
         <Header />
-        <Home info={info} />
+        {children}
         <CustomFooter />
       </body>
     </html>
